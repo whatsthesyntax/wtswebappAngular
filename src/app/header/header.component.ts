@@ -9,7 +9,7 @@ export class HeaderComponent implements OnInit {
 
   logowts = "./assets/logo.png";
   iconsignin = "./assets/iconsignin.png";
-  iconsignup = "./assets/iconsignup.png"
+  iconsignup = "./assets/iconsignup.png";
   constructor() { }
 
   ngOnInit() {
