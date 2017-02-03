@@ -10,6 +10,8 @@ import { FooterComponent } from './footer/footer.component';
 import { SearchareaComponent } from './searcharea/searcharea.component';
 import { BodyComponent } from './body/body.component';
 import { ConnexionComponent } from './connexion/connexion.component';
+import { AdminformComponent } from './adminform/adminform.component';
+import { TesthideComponent } from './testhide/testhide.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { ConnexionComponent } from './connexion/connexion.component';
     FooterComponent,
     SearchareaComponent,
     BodyComponent,
-    ConnexionComponent
+    ConnexionComponent,
+    AdminformComponent,
+    TesthideComponent
   ],
   imports: [
     BrowserModule,
