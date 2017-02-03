@@ -7,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchareaComponent implements OnInit {
 
-  searchpath = "./assets/iconsearch.png";
+  public showSearch = true;
+
   constructor() { }
 
   ngOnInit() {
