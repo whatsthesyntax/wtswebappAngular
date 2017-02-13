@@ -8,10 +8,12 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { SearchareaComponent } from './searcharea/searcharea.component';
-import { BodyComponent } from './body/body.component';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { AdminformComponent } from './adminform/adminform.component';
-import { TesthideComponent } from './testhide/testhide.component';
+import { APP_ROUTES } from "./app.routes";
+import { RouterModule }   from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
+import { InscriptionComponent } from './inscription/inscription.component';
 
 @NgModule({
   declarations: [
@@ -20,12 +22,13 @@ import { TesthideComponent } from './testhide/testhide.component';
     HeaderComponent,
     FooterComponent,
     SearchareaComponent,
-    BodyComponent,
     ConnexionComponent,
     AdminformComponent,
-    TesthideComponent
+    InscriptionComponent
   ],
   imports: [
+    RouterModule.forRoot(APP_ROUTES),
+    ReactiveFormsModule,
     BrowserModule,
     FormsModule,
     HttpModule
