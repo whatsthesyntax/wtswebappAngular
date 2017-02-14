@@ -14,6 +14,8 @@ import { APP_ROUTES } from "./app.routes";
 import { RouterModule }   from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { InscriptionComponent } from './inscription/inscription.component';
+import { AllUsersComponent } from './all-users/all-users.component';
+import { ContributionComponent } from './contribution/contribution.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { InscriptionComponent } from './inscription/inscription.component';
     SearchareaComponent,
     ConnexionComponent,
     AdminformComponent,
-    InscriptionComponent
+    InscriptionComponent,
+    AllUsersComponent,
+    ContributionComponent
   ],
   imports: [
     RouterModule.forRoot(APP_ROUTES),
