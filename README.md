@@ -34,3 +34,6 @@ To get more help on the `angular-cli` use `ng help` or go check out the [Angular
 Pour avoir angular-cli : npm install -g angular-cli
 Après le git clone : npm update
 Pour avoir l'application sur un serveur, depuis la racine du projet : ng serve
+
+## Remarques
+Il faut changer les liens d'url dans connexion.service.ts pour tester les appele à l'api.
