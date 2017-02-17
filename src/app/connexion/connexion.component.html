@@ -1,12 +1,12 @@
-<div [formGroup]="loginForm" class="col-xs-6 col-sm-4 col-sm-push-4 boxlogo myconnexionform">
+<div class="col-xs-6 col-sm-4 col-sm-push-4 boxlogo myconnexionform">
 <div class="span3 well">
   <form class="form-signin">
       <h2 class="form-signin-heading">Connexion</h2>
       <label for="username" class="sr-only">Nom d'utilisateur</label>
-      <input type="textarea" id="username" name="username" class="form-control" placeholder="Nom d'utilisateur" required autofocus>
+      <input type="textarea" id="username" name="username" class="form-control" #newUserName placeholder="Nom d'utilisateur" required autofocus>
       <label for="inputPassword" class="sr-only">Mot de passe</label>
-      <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Mot de passe" required>
-      <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="logIt()">Se connecter</button>
+      <input type="password" id="inputPassword" name="password" class="form-control" #newPassword placeholder="Mot de passe" required>
+      <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="logIt(newUserName.value, newPassword.value); newPassword.value=''; newUserName.value=''">Se connecter</button>
     </form>
 </div>
 </div>
