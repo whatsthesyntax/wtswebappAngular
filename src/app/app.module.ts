@@ -16,6 +16,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { InscriptionComponent } from './inscription/inscription.component';
 import { AllUsersComponent } from './all-users/all-users.component';
 import { ContributionComponent } from './contribution/contribution.component';
+import { CoderesultComponent } from './coderesult/coderesult.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ContributionComponent } from './contribution/contribution.component';
     AdminformComponent,
     InscriptionComponent,
     AllUsersComponent,
-    ContributionComponent
+    ContributionComponent,
+    CoderesultComponent
   ],
   imports: [
     RouterModule.forRoot(APP_ROUTES),
