@@ -22,7 +22,7 @@ export class SearchareaComponent implements OnInit {
 
   getCodesResult(tags){
     this.showSearchResult = true;
-    this.logger.getCode(tags).subscribe(
+    this.logger.getCodes(tags).subscribe(
       (data) => this.codes = data
     );
   }

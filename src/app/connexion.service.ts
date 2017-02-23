@@ -7,17 +7,20 @@ import { Observable } from 'rxjs/Observable';
 import { UserConnect } from './userconnect';
 import { User } from './user';
 import { Code } from './code';
+import { SearchReq } from './searchreq';
 
 @Injectable()
 export class ConnexionService {
   userconnect: UserConnect;
   user: User;
   code: Code;
+  sreq: SearchReq;
   private headers = new Headers({'Content-Type': 'application/json'});
   private userUrlInscription = 'http://localhost:8080/users';
   private usersUrl = 'http://localhost:8080/users';
   private userUrlConnect = 'http://localhost:8080/users';
   private userUrlAddCode = 'http://localhost:8080/users';
+  private userUrlGetCodes = 'http://localhost:8080';
 
   constructor(private http: Http) { }
   /*Inscription*/
@@ -59,7 +62,10 @@ export class ConnexionService {
   /* add tags */
 
   /*Search for a code*/
-  getCode(tags){
+  getCodes(searchreq){
+    this.sreq = new SearchReq(searchreq);
+    const url = this.userUrlGetCodes+'/'+JSON.stringify(this.sreq);
+    console.log(url);
     return this.http.get('./assets/codes.json').map(
       (res) => res.json()
     );
