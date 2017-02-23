@@ -17,6 +17,7 @@ import { InscriptionComponent } from './inscription/inscription.component';
 import { AllUsersComponent } from './all-users/all-users.component';
 import { ContributionComponent } from './contribution/contribution.component';
 import { CoderesultComponent } from './coderesult/coderesult.component';
+import { SidebarconnectComponent } from './sidebarconnect/sidebarconnect.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { CoderesultComponent } from './coderesult/coderesult.component';
     InscriptionComponent,
     AllUsersComponent,
     ContributionComponent,
-    CoderesultComponent
+    CoderesultComponent,
+    SidebarconnectComponent
   ],
   imports: [
     RouterModule.forRoot(APP_ROUTES),

@@ -2,11 +2,22 @@
 <div class="col-lg-6">
     <div class="mysearch input-group">
       <span class="input-group-btn">
-        <button class="btn btn-secondary" type="button">
+        <button class="btn btn-secondary" type="button" (click)="getCodesResult(newTags.value); newTags.value=''">
           <span class="glyphicon glyphicon glyphicon-search"></span>
         </button>
       </span>
-      <input type="text" class="form-control" placeholder="Recherchez un syntaxe ..."/>
+      <input type="text" class="form-control" #newTags placeholder="Recherchez un syntaxe ..."/>
+    </div>
+    <div *ngIf="showSearchResult" class="col-lg-6">
+      <ul>
+        <li *ngFor="let code of codes">
+          <textarea class="span6" rows="2" id="code" #newCodeSelect name="tags" class="form-control" value="{{code.code}}" disabled></textarea>
+          <button class="btn btn-secondary" type="button">
+            <span class="glyphicon glyphicon glyphicon-eye-open"></span>
+          </button>
+          <button class="btn btn-secondary" type="button" (click)="selectText(newCodeSelect)">Selection</button>
+        </li>
+      </ul>
     </div>
 </div>
 </div>
