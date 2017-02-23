@@ -23,7 +23,8 @@ export class ConnexionService {
   /*Inscription*/
   logUp(username, email, passeword){
     this.user = new User(username,email,passeword);
-    return this.http.post(this.userUrlInscription, JSON.stringify(this.user), {headers: this.headers})
+    console.log(JSON.stringify(this.user));
+    this.http.post(this.userUrlInscription, JSON.stringify(this.user), {headers: this.headers})
     .toPromise()
     .then(res => res.json().data)
     .catch(this.handleError);
@@ -32,6 +33,7 @@ export class ConnexionService {
   /* Connexion*/
   logIn(username, passeword){
     this.userconnect = new UserConnect(username,passeword);
+    console.log(JSON.stringify(this.userconnect));
     return this.http.post(this.userUrlConnect, JSON.stringify(this.userconnect), {headers: this.headers})
     .toPromise()
     .then(res => res.json().data)
@@ -57,6 +59,12 @@ export class ConnexionService {
   /* add tags */
 
   /*Search for a code*/
+  getCode(tags){
+    return this.http.get('./assets/codes.json').map(
+      (res) => res.json()
+    );
+
+  }
 
   /**/
   private extractData(res: Response) {

@@ -11,6 +11,7 @@ export class SidebarComponent implements OnInit {
   iconjava = "./assets/iconjava.png";
   iconcsharp = "./assets/iconcsharp.png";
   iconcmenu = "./assets/iconmenu.png";
+  iconphp = "./assets/iconphp.png";
 
   constructor() { }
 
