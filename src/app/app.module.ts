@@ -17,7 +17,7 @@ import { InscriptionComponent } from './inscription/inscription.component';
 import { AllUsersComponent } from './all-users/all-users.component';
 import { ContributionComponent } from './contribution/contribution.component';
 import { CoderesultComponent } from './coderesult/coderesult.component';
-import { SidebarconnectComponent } from './sidebarconnect/sidebarconnect.component';
+import { SeecodeComponent } from './seecode/seecode.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +32,7 @@ import { SidebarconnectComponent } from './sidebarconnect/sidebarconnect.compone
     AllUsersComponent,
     ContributionComponent,
     CoderesultComponent,
-    SidebarconnectComponent
+    SeecodeComponent
   ],
   imports: [
     RouterModule.forRoot(APP_ROUTES),

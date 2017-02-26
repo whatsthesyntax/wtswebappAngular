@@ -1,6 +1,38 @@
 [
-  {"code" : "J'ai trouver des codes", "langage" : "Java"},
-  {"code" : "J'ai trouver des codes", "langage" : "Java"},
-  {"code" : "J'ai trouver des codes", "langage" : "Java"},
-  {"code" : "J'ai trouver des codes", "langage" : "Java" }
+  {
+    "codeId": 1,
+    "code": "for(int i=0; i<10; i++){\n  System.out.println(\"item\"+i);\n}",
+    "description": null,
+    "tags": [
+      {
+        "tagId": 1,
+        "tag": "variable"
+      },
+      {
+        "tagId": 3,
+        "tag": "boucle"
+      },
+      {
+        "tagId": 2,
+        "tag": "fonction"
+      }
+    ],
+    "langage": {
+      "langageId": 1,
+      "langage": "java"
+    }
+  },
+  {
+    "codeId": 2,
+    "code": "for(int i=0; i<10; i++){\n  System.Console.WriteLine(\"item\"+i);\n}",
+    "description": null,
+    "tags": [
+      2,
+      1
+    ],
+    "langage": {
+      "langageId": 2,
+      "langage": "c#"
+    }
+  }
 ]
