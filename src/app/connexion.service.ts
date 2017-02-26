@@ -8,6 +8,7 @@ import { UserConnect } from './userconnect';
 import { User } from './user';
 import { Code } from './code';
 import { SearchReq } from './searchreq';
+import { Tag } from  './tag';
 
 @Injectable()
 export class ConnexionService {
@@ -15,12 +16,14 @@ export class ConnexionService {
   user: User;
   code: Code;
   sreq: SearchReq;
+  tag: Tag;
   private headers = new Headers({'Content-Type': 'application/json'});
-  private userUrlInscription = 'http://localhost:8080/users';
+  private userUrlInscription = 'http://localhost:8080/inscription';
   private usersUrl = 'http://localhost:8080/users';
   private userUrlConnect = 'http://localhost:8080/users';
-  private userUrlAddCode = 'http://localhost:8080/users';
-  private userUrlGetCodes = 'http://localhost:8080';
+  private userUrlAddCode = 'http://localhost:8080/addCode';
+  private userUrlAddTag = 'http://localhost:8080/addTag';
+  private userUrlGetCodes = 'http://localhost:8080/getCodes';
 
   constructor(private http: Http) { }
   /*Inscription*/
@@ -51,16 +54,16 @@ export class ConnexionService {
   }
 
   /*Add Code*/
-  addCode (codep,langage, tagsp){
-    this.code = new Code(codep, langage, tagsp);
-    console.log("le code "+JSON.stringify(this.code));
-    return this.http.post(this.userUrlAddCode, JSON.stringify(this.code), {headers: this.headers})
-    .toPromise()
-    .then(res => res.json().data)
-    .catch(this.handleError);
+  addCode (codep, langage, tagsp:string[]){
+    for(var t of tagsp){
+      this.code = new Code(codep, langage, t);
+      console.log(JSON.stringify(this.code));
+      this.http.post(this.userUrlAddCode, JSON.stringify(this.code), {headers: this.headers})
+      .toPromise()
+      .then(res => res.json().data)
+      .catch(this.handleError);
+    }
   }
-  /* add tags */
-
   /*Search for a code*/
   getCodes(searchreq){
     this.sreq = new SearchReq(searchreq);

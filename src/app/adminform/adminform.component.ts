@@ -16,6 +16,6 @@ export class AdminformComponent implements OnInit {
   }
 
   addIt(codep, langage, tagsp){
-    this.logger.addCode(codep, langage, tagsp);
+    this.logger.addCode(codep, langage, tagsp.split(", "));
   }
 }
