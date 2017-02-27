@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ConnexionService } from '../connexion.service';
 
-
 @Component({
   selector: 'app-connexion',
   templateUrl: './connexion.component.html',
@@ -16,8 +15,6 @@ export class ConnexionComponent implements OnInit {
   ngOnInit() {
   }
 
-  logIt(username, passeword){
-    this.logger.logIn(username, passeword);
-  }
+  logIt(username, passeword){ }
 
 }
