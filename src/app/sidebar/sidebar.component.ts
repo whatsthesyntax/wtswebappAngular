@@ -6,7 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
-  public connect = false;
   iconaccueil = "./assets/iconaccueil.png";
   iconjava = "./assets/iconjava.png";
   iconcsharp = "./assets/iconcsharp.png";

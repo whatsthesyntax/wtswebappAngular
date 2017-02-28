@@ -6,5 +6,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  public connect = false;
+  public codeselect = "";
   title = 'app works!';
 }

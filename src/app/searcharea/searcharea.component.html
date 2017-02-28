@@ -8,13 +8,13 @@
       </span>
       <input type="text" class="form-control" #newTags placeholder="Recherchez un syntaxe ..."/>
     </div>
-    <div *ngIf="showSearchResult" class="col-lg-6">
+    <div *ngIf="showSearchResult" class="listcode">
       <ul class="sanspuce">
         <li *ngFor="let code of codes">
           <textarea class="span6" rows="2" id="code" #newCodeSelect name="tags" class="form-control" value="{{code.code}}" readonly></textarea>
-          <a href="./seecode"><button  class="btn btn-secondary" type="button">
+          <button  class="btn btn-secondary" (click)="codeselection(newCodeSelect.value)" type="button">
             <span class="glyphicon glyphicon glyphicon-eye-open"></span>
-          </button></a>
+          </button>
           <button class="btn btn-secondary" type="button" (click)="selectText(newCodeSelect)">Selection</button>
         </li>
       </ul>
