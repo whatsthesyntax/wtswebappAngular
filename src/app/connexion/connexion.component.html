@@ -6,7 +6,7 @@
       <input type="textarea" id="username" name="username" class="form-control" #newUserName placeholder="Nom d'utilisateur" required autofocus>
       <label for="inputPassword" class="sr-only">Mot de passe</label>
       <input type="password" id="inputPassword" name="password" class="form-control" #newPassword placeholder="Mot de passe" required>
-      <a href="./perso"><button class="btn btn-lg btn-primary btn-block" type="submit" (click)="logIt(newUserName.value, newPassword.value); newPassword.value=''; newUserName.value=''">Se connecter</button></a>
+      <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="logIt(newUserName.value, newPassword.value); newPassword.value=''; newUserName.value=''">Se connecter</button>
     </form>
 </div>
 </div>

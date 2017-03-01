@@ -24,6 +24,8 @@ export class ConnexionService {
   private userUrlAddCode = 'http://localhost:8080/addCode';
   private userUrlAddTag = 'http://localhost:8080/addTag';
   private userUrlGetCodes = 'http://localhost:8080/getCodes';
+  private userUrlGetMesCodes = 'http://localhost:8080/getCodes';
+  private userUrlGetMesLangages = 'http://localhost:8080/getCodes';
 
   constructor(private http: Http) { }
   /*Inscription*/
@@ -72,9 +74,19 @@ export class ConnexionService {
     return this.http.get('./assets/codes.json').map(
       (res) => res.json()
     );
-
   }
-
+  /*Mes codes sauvegarder*/
+  getMesCodes(){
+    return this.http.get('./assets/mescodes.json').map(
+      (res) => res.json()
+    );
+  }
+  /*Mes langages*/
+  getMesLangages(){
+    return this.http.get('./assets/langages.json').map(
+      (res) => res.json()
+    );
+  }
   /**/
   private extractData(res: Response) {
     let body = res.json();

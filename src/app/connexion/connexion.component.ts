@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ConnexionService } from '../connexion.service';
+import { APP_GLOBAL } from '../appglobal';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-connexion',
@@ -10,11 +12,15 @@ import { ConnexionService } from '../connexion.service';
 export class ConnexionComponent implements OnInit {
 
 
-  constructor(private logger: ConnexionService) { }
+  constructor(private logger: ConnexionService, private router: Router) { }
 
   ngOnInit() {
   }
 
-  logIt(username, passeword){ }
+  logIt(username, passeword){
+    APP_GLOBAL.updateMockuserName(username);
+    APP_GLOBAL.updateConnect(true);
+    this.router.navigateByUrl('perso');
+  }
 
 }
