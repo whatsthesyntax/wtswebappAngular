@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ConnexionService } from '../connexion.service';
 import { Router } from '@angular/router';
+import { APP_GLOBAL } from '../appglobal';
 
 @Component({
   selector: 'app-searcharea',
@@ -16,16 +17,15 @@ export class SearchareaComponent implements OnInit {
 
   ngOnInit() {
   }
-
   selectText(elem){
     elem.focus();
     elem.select();
   }
-  codeselection(valuecode){
-    //codeselect=valuecode;
-    console.log("le code est  : \n");
+  codeselection(valuecode:string){
+    APP_GLOBAL.updateCodeSelect(valuecode);
     this.router.navigateByUrl('seecode');
   }
+
   getCodesResult(tags){
     this.showSearchResult = true;
     this.logger.getCodes(tags).subscribe(
