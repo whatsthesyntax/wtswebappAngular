@@ -7,14 +7,11 @@ import { APP_GLOBAL } from './appglobal';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  connect = APP_GLOBAL.getConnect();
   title = 'app works!';
   constructor() {
         document.addEventListener('click', () => this.onClick());
   }
   onClick( ) {
-    this.connect = APP_GLOBAL.getConnect();
-    console.log(this.connect);
     console.log("click !")
   }
   /*onClick(ev:clickEvent) {

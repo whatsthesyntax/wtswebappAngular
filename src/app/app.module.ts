@@ -9,12 +9,10 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { SearchareaComponent } from './searcharea/searcharea.component';
 import { ConnexionComponent } from './connexion/connexion.component';
-import { AdminformComponent } from './adminform/adminform.component';
 import { APP_ROUTES } from "./app.routes";
 import { RouterModule }   from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { InscriptionComponent } from './inscription/inscription.component';
-import { AllUsersComponent } from './all-users/all-users.component';
 import { ContributionComponent } from './contribution/contribution.component';
 import { CoderesultComponent } from './coderesult/coderesult.component';
 import { SeecodeComponent } from './seecode/seecode.component';
@@ -28,9 +26,7 @@ import { EspacepersoComponent } from './espaceperso/espaceperso.component';
     FooterComponent,
     SearchareaComponent,
     ConnexionComponent,
-    AdminformComponent,
     InscriptionComponent,
-    AllUsersComponent,
     ContributionComponent,
     CoderesultComponent,
     SeecodeComponent,
