@@ -1,5 +1,6 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { ConnexionService } from '../connexion.service';
+import { Router } from '@angular/router';
 import { APP_GLOBAL } from '../appglobal';
 
 @Component({
@@ -12,7 +13,8 @@ export class EspacepersoComponent implements OnInit {
 
   public mescodes = [];
   public meslangages= [];
-  constructor(private logger: ConnexionService) { }
+  connect = APP_GLOBAL.getConnect();
+  constructor(private logger: ConnexionService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -28,5 +30,9 @@ export class EspacepersoComponent implements OnInit {
     console.log(this.meslangages);
   }
 
+  seeCode(codeValue:string){
+    APP_GLOBAL.updateCodeSelect(codeValue);
+    this.router.navigateByUrl('seecode');
+  }
 
 }

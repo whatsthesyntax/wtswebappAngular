@@ -1,12 +1,15 @@
 <div class="col-xs-6 col-sm-10 col-sm-push-4 boxlogo perso">
-  <ul class="sanspuce">
+  <ul class="sanspuce nav nav-tabs nav-justified" role="tablist">
     <li *ngFor="let langage of meslangages">
       <div class="row">
         <h2>{{langage.langage}}</h2>
         <ul class="sanspuce">
-          <li *ngFor="let code of mescodes">
-            <div class="row">
-              <p *ngIf="code.langage.langage==langage.langage">{{code.code}}</p>
+          <li *ngFor="let code of mescodes" (click)="seeCode(code.code)">
+            <div *ngIf="code.langage.langage==langage.langage" class="row quote-container">
+              <i class="pin"></i>
+              <blockquote class="note yellow">
+                {{code.code}}
+              </blockquote>
             </div>
           </li>
         </ul>
