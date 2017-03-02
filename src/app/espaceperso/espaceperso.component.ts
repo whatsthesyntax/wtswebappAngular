@@ -19,7 +19,7 @@ export class EspacepersoComponent implements OnInit {
 
   ngAfterViewInit() {
     this.logger.getMesLangages().subscribe(
-      (data) => this.meslangages
+      (data) => this.meslangages = data
     );
     this.logger.getMesCodes().subscribe(
       (data) => this.mescodes = data

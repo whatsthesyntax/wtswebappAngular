@@ -2,9 +2,15 @@
   <ul class="sanspuce">
     <li *ngFor="let langage of meslangages">
       <div class="row">
-        <h1>{{langage.langage}}</h1>
+        <h2>{{langage.langage}}</h2>
+        <ul class="sanspuce">
+          <li *ngFor="let code of mescodes">
+            <div class="row">
+              <p *ngIf="code.langage.langage==langage.langage">{{code.code}}</p>
+            </div>
+          </li>
+        </ul>
       </div>
     </li>
   </ul>
-  qlpikujgoidhfgkjdfhgkslxdjhgoiserdgnkjsdfhkjsdf,bhuijosoedhynskjlfgnbkljxhnboisfdh
 </div>

@@ -1,14 +1,14 @@
 [
     {
       "langageId": 1,
-      "langage": "java"
+      "langage": "Java"
+    },
+    {
+      "langageId": 2,
+      "langage": "Php"
     },
     {
       "langageId": 1,
-      "langage": "java"
-    },
-    {
-      "langageId": 1,
-      "langage": "java"
+      "langage": "C#"
     }
 ]
