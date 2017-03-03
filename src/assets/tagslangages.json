@@ -12,5 +12,9 @@
       "langageId": 1,
       "langage": "C#"
     }
+],
+"tags":[
+  {"tag":"boucle"},
+  {"tag":"for"}
 ]
 }

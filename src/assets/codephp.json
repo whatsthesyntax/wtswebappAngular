@@ -1,0 +1,25 @@
+[
+  {
+  "codeId": 1,
+  "code": "for ($i = 1; $i <= 10; $i++){\n  echo $i;\n}",
+  "description": null,
+  "tags": [
+    {
+      "tagId": 1,
+      "tag": "variable"
+    },
+    {
+      "tagId": 3,
+      "tag": "boucle"
+    },
+    {
+      "tagId": 2,
+      "tag": "fonction"
+    }
+  ],
+  "langage": {
+    "langageId": 1,
+    "langage": "java"
+  }
+}
+]
