@@ -17,17 +17,17 @@ export class EspacepersoComponent implements OnInit {
   constructor(private logger: ConnexionService, private router: Router) { }
 
   ngOnInit() {
+    console.log(APP_GLOBAL.getConnect());
+    console.log(this.connect);
   }
 
   ngAfterViewInit() {
     this.logger.getMesLangages().subscribe(
-      (data) => this.meslangages = data
+      (data) => this.meslangages = data.langages
     );
     this.logger.getMesCodes().subscribe(
       (data) => this.mescodes = data
     );
-    console.log(this.mescodes);
-    console.log(this.meslangages);
   }
 
   seeCode(codeValue:string){

@@ -12,4 +12,8 @@ export class SeecodeComponent implements OnInit {
   ngOnInit() {
     this.codeselect = APP_GLOBAL.getCodeSelect();
   }
+  selectText(elem){
+    elem.focus();
+    elem.select();
+  }
 }
