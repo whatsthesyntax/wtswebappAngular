@@ -17,6 +17,7 @@ import { ContributionComponent } from './contribution/contribution.component';
 import { CoderesultComponent } from './coderesult/coderesult.component';
 import { SeecodeComponent } from './seecode/seecode.component';
 import { EspacepersoComponent } from './espaceperso/espaceperso.component';
+import { SearchbylangageComponent } from './searchbylangage/searchbylangage.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { EspacepersoComponent } from './espaceperso/espaceperso.component';
     ContributionComponent,
     CoderesultComponent,
     SeecodeComponent,
-    EspacepersoComponent
+    EspacepersoComponent,
+    SearchbylangageComponent
   ],
   imports: [
     RouterModule.forRoot(APP_ROUTES),

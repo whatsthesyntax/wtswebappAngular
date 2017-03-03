@@ -17,6 +17,7 @@ export class SearchareaComponent implements OnInit {
 
   ngOnInit() {
   }
+
   selectText(elem){
     elem.focus();
     elem.select();

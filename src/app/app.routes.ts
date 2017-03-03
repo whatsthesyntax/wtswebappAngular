@@ -5,6 +5,7 @@ import { ContributionComponent } from "./contribution/contribution.component";
 import { CoderesultComponent } from "./coderesult/coderesult.component";
 import { SeecodeComponent } from "./seecode/seecode.component";
 import { EspacepersoComponent } from "./espaceperso/espaceperso.component";
+import { SearchbylangageComponent } from "./searchbylangage/searchbylangage.component";
 import { provideRoutes } from "@angular/router";
 
 export const APP_ROUTES = [
@@ -14,5 +15,6 @@ export const APP_ROUTES = [
   {path: 'contribution', component: ContributionComponent },
   {path: 'result', component: CoderesultComponent },
   {path: 'seecode', component: SeecodeComponent },
-  {path: 'perso', component: EspacepersoComponent }
+  {path: 'perso', component: EspacepersoComponent },
+  {path: 'bylangage', component: SearchbylangageComponent }
 ];

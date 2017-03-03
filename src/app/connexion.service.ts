@@ -67,9 +67,9 @@ export class ConnexionService {
     }
   }
   /*Search for a code*/
-  getCodes(searchreq){
+  getCodes(searchreq:string){
     this.sreq = new SearchReq(searchreq);
-    const url = this.userUrlGetCodes+'/'+JSON.stringify(this.sreq);
+    const url = this.userUrlGetCodes+'/'+searchreq;
     console.log(url);
     return this.http.get('./assets/codes.json').map(
       (res) => res.json()
@@ -84,6 +84,33 @@ export class ConnexionService {
   /*Mes langages*/
   getMesLangages(){
     return this.http.get('./assets/langages.json').map(
+      (res) => res.json()
+    );
+  }
+  /*Get code langage Java*/
+  getCodeJava(){
+    return this.http.get('./assets/codejava.json').map(
+      (res) => res.json()
+    );
+  }
+
+  /*Get code langage C#*/
+  getCodeCsharp(){
+    return this.http.get('./assets/codecsharp.json').map(
+      (res) => res.json()
+    );
+  }
+
+  /*Get code langage php*/
+  getCodePhp(){
+    return this.http.get('./assets/codephp.json').map(
+      (res) => res.json()
+    );
+  }
+
+  /*Get all langage all tags*/
+  getLangagesTags(){
+    return this.http.get('./assets/tagslangages.json').map(
       (res) => res.json()
     );
   }
