@@ -17,7 +17,6 @@ import { ContributionComponent } from './contribution/contribution.component';
 import { CoderesultComponent } from './coderesult/coderesult.component';
 import { SeecodeComponent } from './seecode/seecode.component';
 import { EspacepersoComponent } from './espaceperso/espaceperso.component';
-import { SearchbylangageComponent } from './searchbylangage/searchbylangage.component';
 import { HeaderconnectComponent } from './headerconnect/headerconnect.component';
 import { SidebarconnectComponent } from './sidebarconnect/sidebarconnect.component';
 import { SearchjavaComponent } from './searchjava/searchjava.component';
@@ -37,7 +36,6 @@ import { SearchphpComponent } from './searchphp/searchphp.component';
     CoderesultComponent,
     SeecodeComponent,
     EspacepersoComponent,
-    SearchbylangageComponent,
     HeaderconnectComponent,
     SidebarconnectComponent,
     SearchjavaComponent,

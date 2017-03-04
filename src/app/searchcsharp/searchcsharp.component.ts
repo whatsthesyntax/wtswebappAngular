@@ -5,7 +5,8 @@ import { APP_GLOBAL } from '../appglobal';
 @Component({
   selector: 'app-searchcsharp',
   templateUrl: './searchcsharp.component.html',
-  styleUrls: ['./searchcsharp.component.css']
+  styleUrls: ['./searchcsharp.component.css'],
+  providers: [ConnexionService]
 })
 export class SearchcsharpComponent implements OnInit {
 

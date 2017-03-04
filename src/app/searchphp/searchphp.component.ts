@@ -5,7 +5,8 @@ import { APP_GLOBAL } from '../appglobal';
 @Component({
   selector: 'app-searchphp',
   templateUrl: './searchphp.component.html',
-  styleUrls: ['./searchphp.component.css']
+  styleUrls: ['./searchphp.component.css'],
+  providers: [ConnexionService]
 })
 export class SearchphpComponent implements OnInit {
 

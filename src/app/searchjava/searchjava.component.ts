@@ -5,7 +5,8 @@ import { APP_GLOBAL } from '../appglobal';
 @Component({
   selector: 'app-searchjava',
   templateUrl: './searchjava.component.html',
-  styleUrls: ['./searchjava.component.css']
+  styleUrls: ['./searchjava.component.css'],
+  providers: [ConnexionService]
 })
 export class SearchjavaComponent implements OnInit {
 

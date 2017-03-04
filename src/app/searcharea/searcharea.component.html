@@ -2,11 +2,11 @@
 <div class="col-lg-6">
     <div class="mysearch input-group">
       <span class="input-group-btn">
-        <button class="btn btn-secondary" type="button" (click)="getCodesResult(newTags.value); newTags.value=''">
+        <button class="btn btn-secondary" type="button" (click)="getCodesResult(newTags.value); newTags.value=''" width="40" height="40">
           <span class="glyphicon glyphicon glyphicon-search"></span>
         </button>
       </span>
-      <input type="text" class="form-control" #newTags placeholder="Recherchez un syntaxe ..."/>
+      <input type="text" class="form-control" #newTags placeholder="Recherchez une syntaxe ..."/>
     </div>
     <div *ngIf="showSearchResult" class="listcode">
       <ul class="sanspuce">

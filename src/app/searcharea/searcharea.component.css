@@ -12,3 +12,13 @@
 .listcode {
     padding-bottom: 20px;
 }
+
+input
+{
+  height: 50px;
+  width: 300px;
+}
+
+span.glyphicon-search {
+    font-size: 2.7em;
+}
