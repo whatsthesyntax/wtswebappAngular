@@ -20,6 +20,9 @@ import { EspacepersoComponent } from './espaceperso/espaceperso.component';
 import { SearchbylangageComponent } from './searchbylangage/searchbylangage.component';
 import { HeaderconnectComponent } from './headerconnect/headerconnect.component';
 import { SidebarconnectComponent } from './sidebarconnect/sidebarconnect.component';
+import { SearchjavaComponent } from './searchjava/searchjava.component';
+import { SearchcsharpComponent } from './searchcsharp/searchcsharp.component';
+import { SearchphpComponent } from './searchphp/searchphp.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +39,10 @@ import { SidebarconnectComponent } from './sidebarconnect/sidebarconnect.compone
     EspacepersoComponent,
     SearchbylangageComponent,
     HeaderconnectComponent,
-    SidebarconnectComponent
+    SidebarconnectComponent,
+    SearchjavaComponent,
+    SearchcsharpComponent,
+    SearchphpComponent
   ],
   imports: [
     RouterModule.forRoot(APP_ROUTES),
