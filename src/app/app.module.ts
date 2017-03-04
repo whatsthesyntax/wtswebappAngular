@@ -18,6 +18,8 @@ import { CoderesultComponent } from './coderesult/coderesult.component';
 import { SeecodeComponent } from './seecode/seecode.component';
 import { EspacepersoComponent } from './espaceperso/espaceperso.component';
 import { SearchbylangageComponent } from './searchbylangage/searchbylangage.component';
+import { HeaderconnectComponent } from './headerconnect/headerconnect.component';
+import { SidebarconnectComponent } from './sidebarconnect/sidebarconnect.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { SearchbylangageComponent } from './searchbylangage/searchbylangage.comp
     CoderesultComponent,
     SeecodeComponent,
     EspacepersoComponent,
-    SearchbylangageComponent
+    SearchbylangageComponent,
+    HeaderconnectComponent,
+    SidebarconnectComponent
   ],
   imports: [
     RouterModule.forRoot(APP_ROUTES),

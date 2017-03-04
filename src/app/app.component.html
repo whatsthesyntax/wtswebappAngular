@@ -1,7 +1,9 @@
 <header>
-  <app-header></app-header>
+  <app-header *ngIf="notconnect"></app-header>
+  <app-headerconnect *ngIf="connect"></app-headerconnect>
 </header>
 <section id="main">
-    <app-sidebar [@slideInOut]="menuState"></app-sidebar>
+    <app-sidebar *ngIf="notconnect"></app-sidebar>
+    <app-sidebarconnect *ngIf="connect"></app-sidebarconnect>
     <router-outlet></router-outlet>
 </section>

@@ -20,7 +20,7 @@ export class ConnexionComponent implements OnInit {
   logIt(username, passeword){
     APP_GLOBAL.updateMockuserName(username);
     APP_GLOBAL.updateConnect(true);
-    this.router.navigateByUrl('perso');
+    this.router.navigateByUrl('/');
   }
 
 }

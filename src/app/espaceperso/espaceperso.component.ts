@@ -13,12 +13,9 @@ export class EspacepersoComponent implements OnInit {
 
   public mescodes = [];
   public meslangages= [];
-  connect = APP_GLOBAL.getConnect();
   constructor(private logger: ConnexionService, private router: Router) { }
 
   ngOnInit() {
-    console.log(APP_GLOBAL.getConnect());
-    console.log(this.connect);
   }
 
   ngAfterViewInit() {

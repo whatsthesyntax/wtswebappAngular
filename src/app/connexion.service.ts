@@ -17,30 +17,29 @@ export class ConnexionService {
   code: Code;
   sreq: SearchReq;
   tag: Tag;
-  private headers = new Headers({'Content-Type': 'application/json'});
   /*Autorisation*/
   createAuthorizationHeader(headers: Headers) {
     headers.append('Authorization', 'Basic ' +
       btoa('username:password'));
   }
-  private userUrlInscription = 'http://localhost:8080/users';
+  public userUrlInscription = 'http://vps381611.ovh.net:8080/WTSAPI/users';
   private usersUrl = 'http://localhost:8080/users';
-  private userUrlConnect = 'http://vps381611.ovh.net:8080/WTSAPI/logged/Utilisateur';
+  /*A faire*/
+  private userUrlConnect = 'http://vps381611.ovh.net:8080/WTSAPI/connexion';
   private userUrlAddCode = 'http://localhost:8080/addCode';
   private userUrlAddTag = 'http://localhost:8080/addTag';
   private userUrlGetCodes = 'http://localhost:8080/getCodes';
   private userUrlGetMesCodes = 'http://localhost:8080/getCodes';
   private userUrlGetMesLangages = 'http://localhost:8080/getCodes';
-
+  headers = new Headers({"Content-Type": "application/json"});
+  options = new RequestOptions({ headers: this.headers });
   constructor(private http: Http) { }
   /*Inscription*/
   logUp(username, email, passeword){
     this.user = new User(username,email,passeword);
-    console.log(JSON.stringify(this.user));
-    this.http.post(this.userUrlInscription, JSON.stringify(this.user), {headers: this.headers})
-    .toPromise()
-    .then(res => res.json().data)
-    .catch(this.handleError);
+    return this.http.post(this.userUrlInscription, JSON.stringify(this.user), {headers:this.headers})
+      .map(this.extractData)
+      .catch(this.handleError);
   }
 
   /* Connexion*/
@@ -59,7 +58,7 @@ export class ConnexionService {
 
   /* All users*/
   getUsers (): Observable<User[]> {
-  return this.http.get(this.usersUrl)
+  return this.http.get(this.userUrlInscription, {headers:this.headers})
                   .map(this.extractData)
                   .catch(this.handleError);
   }
@@ -68,7 +67,6 @@ export class ConnexionService {
   addCode (codep, langage, tagsp:string[]){
     for(var t of tagsp){
       this.code = new Code(codep, langage, t);
-      console.log(JSON.stringify(this.code));
       this.http.post(this.userUrlAddCode, JSON.stringify(this.code), {headers: this.headers})
       .toPromise()
       .then(res => res.json().data)

@@ -19,6 +19,7 @@ import { APP_GLOBAL } from './appglobal';
 })
 export class AppComponent {
   public connect = APP_GLOBAL.getConnect();
+  public notconnect = !APP_GLOBAL.getConnect();
   menuState:string = 'out';
   title = 'app works!';
   constructor() {
