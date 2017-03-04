@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit} from '@angular/core';
 import { ConnexionService } from '../connexion.service';
 import { Router } from '@angular/router';
 import { APP_GLOBAL } from '../appglobal';
@@ -15,7 +15,7 @@ export class SidebarComponent implements OnInit {
   iconcmenu = "./assets/iconmenu.png";
   iconphp = "./assets/iconphp.png";
 
-
+  
   public allLangages = [];
   public allTags = [];
   constructor(private logger: ConnexionService, private router: Router) { }
@@ -29,7 +29,9 @@ export class SidebarComponent implements OnInit {
       (data) => this.allLangages = data.langages,
       (data) => this.allTags = data.tags
     );
-    
+
   }
+
+
 
 }

@@ -2,6 +2,6 @@
   <app-header></app-header>
 </header>
 <section id="main">
-    <app-sidebar></app-sidebar>
+    <app-sidebar [@slideInOut]="menuState"></app-sidebar>
     <router-outlet></router-outlet>
 </section>

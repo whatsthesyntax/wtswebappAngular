@@ -1,6 +1,6 @@
 export class UserConnect {
   constructor(
-    public username: string,
+    public name: string,
     public password: string
   ) {  }
 }

@@ -18,9 +18,14 @@ export class ConnexionService {
   sreq: SearchReq;
   tag: Tag;
   private headers = new Headers({'Content-Type': 'application/json'});
-  private userUrlInscription = 'http://localhost:8080/inscription';
+  /*Autorisation*/
+  createAuthorizationHeader(headers: Headers) {
+    headers.append('Authorization', 'Basic ' +
+      btoa('username:password'));
+  }
+  private userUrlInscription = 'http://localhost:8080/users';
   private usersUrl = 'http://localhost:8080/users';
-  private userUrlConnect = 'http://localhost:8080/users';
+  private userUrlConnect = 'http://vps381611.ovh.net:8080/WTSAPI/logged/Utilisateur';
   private userUrlAddCode = 'http://localhost:8080/addCode';
   private userUrlAddTag = 'http://localhost:8080/addTag';
   private userUrlGetCodes = 'http://localhost:8080/getCodes';
@@ -41,11 +46,15 @@ export class ConnexionService {
   /* Connexion*/
   logIn(username, passeword){
     this.userconnect = new UserConnect(username,passeword);
-    console.log(JSON.stringify(this.userconnect));
-    return this.http.post(this.userUrlConnect, JSON.stringify(this.userconnect), {headers: this.headers})
-    .toPromise()
-    .then(res => res.json().data)
-    .catch(this.handleError);
+    return this.http.post(this.userUrlConnect, JSON.stringify(this.userconnect))
+        .map((response: Response) => {
+            // login successful if there's a jwt token in the response
+            let user = response.json();
+            if (user && user.token) {
+                // store user details and jwt token in local storage to keep user logged in between page refreshes
+                localStorage.setItem('currentUser', JSON.stringify(user));
+            }
+        });
   }
 
   /* All users*/
