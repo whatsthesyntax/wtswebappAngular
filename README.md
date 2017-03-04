@@ -37,3 +37,16 @@ Pour avoir l'application sur un serveur, depuis la racine du projet : ng serve
 
 ## Remarques
 Il faut changer les liens d'url dans connexion.service.ts pour tester les appele à l'api.
+
+## TODO
+
+-get Les langages par Utilisateur
+-get Les codes par Utilisateur
+-get La connexion retour user
+-post La création d'un code perso
+-put La modification d'un code perso
+-post La création d'un code public (soumettre)
+-post Validation d'un code public
+-get recherche par langage
+-get Tous les langages
+-get tous les mots clès
