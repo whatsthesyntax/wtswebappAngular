@@ -14,10 +14,9 @@ export class InscriptionComponent implements OnInit {
   constructor(private logger: ConnexionService, public router: Router) { }
 
   ngOnInit() {
-    this.logger.getUsers().subscribe(
-      (data) => this.users = data
-    );
+
   }
+
 
   logItUp(username, email, passeword){
     this.logger.logUp(username, email, passeword);

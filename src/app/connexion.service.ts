@@ -23,20 +23,22 @@ export class ConnexionService {
       btoa('username:password'));
   }
   public userUrlInscription = 'http://vps381611.ovh.net:8080/WTSAPI/users';
-  private usersUrl = 'http://localhost:8080/users';
+  private usersUrl = 'http://vps381611.ovh.net:8080/WTSAPI//users';
   /*A faire*/
+
   private userUrlConnect = 'http://vps381611.ovh.net:8080/WTSAPI/users';
   private userUrlAddCode = 'http://localhost:8080/addCode';
   private userUrlAddTag = 'http://localhost:8080/addTag';
   private userUrlGetCodes = 'http://localhost:8080/getCodes';
   private userUrlGetMesCodes = 'http://localhost:8080/getCodes';
   private userUrlGetMesLangages = 'http://localhost:8080/getCodes';
+
   headers = new Headers({"Content-Type": "application/json"});
   options = new RequestOptions({ headers: this.headers });
   constructor(private http: Http) { }
   /*Inscription*/
-  logUp(username, email, passeword){
-    this.user = new User(username,email,passeword);
+  logUp(name, email, password){
+    this.user = new User(name,email,password);
     return this.http.post(this.userUrlInscription, JSON.stringify(this.user), {headers:this.headers})
     .toPromise()
     .catch(this.handleError);
@@ -48,15 +50,6 @@ export class ConnexionService {
     return this.http.get(this.userUrlInscription).map(
       (res) => res.json()
     );
-    /*return this.http.post(this.userUrlConnect, JSON.stringify(this.userconnect))
-        .map((response: Response) => {
-            // login successful if there's a jwt token in the response
-            let user = response.json();
-            if (user && user.token) {
-                // store user details and jwt token in local storage to keep user logged in between page refreshes
-                localStorage.setItem('currentUser', JSON.stringify(user));
-            }
-        });*/
   }
 
   /* All users*/
