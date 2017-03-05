@@ -18,8 +18,8 @@ export class InscriptionComponent implements OnInit {
     );
   }
 
-  logItUp(username, email, passeword){
-    this.logger.logUp(username, email, passeword);
+  logItUp(name, email, password){
+    this.logger.logUp(name, email, password);
   }
   ngAfterViewInit() {
 
