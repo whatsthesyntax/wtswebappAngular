@@ -9,6 +9,15 @@ export class Globalvariables {
   updateCodeSelect(newvalue:string){
     this.codeselect = newvalue;
   }
+  /*Code id*/
+  codeId:number;
+
+  getCodeId():number{
+    return this.codeId;
+  }
+  updateCodeId(newvalue:number){
+    this.codeId = newvalue;
+  }
 
   getCodeSelect():string{
     return this.codeselect;
