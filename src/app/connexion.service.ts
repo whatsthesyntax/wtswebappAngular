@@ -22,7 +22,7 @@ export class ConnexionService {
     headers.append('Authorization', 'Basic ' +
       btoa('username:password'));
   }
-  public userUrlInscription = 'http://vps381611.ovh.net:8080/WTSAPI/users';
+  private userUrlInscription = 'http://vps381611.ovh.net:8080/WTSAPI/users';
   private usersUrl = 'http://vps381611.ovh.net:8080/WTSAPI//users';
   /*A faire*/
 

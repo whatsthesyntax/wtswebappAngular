@@ -1,3 +1,27 @@
-<p>
-  searchphpconnect works!
-</p>
+<header>
+  <app-headerconnect></app-headerconnect>
+</header>
+<app-sidebarconnect></app-sidebarconnect>
+<div class="col-xs-6 col-sm-10 col-sm-push-4 boxlogo">
+<div class="col-lg-6">
+    <div class="mysearchphp input-group">
+      <span class="input-group-btn">
+        <button class="btn btn-secondary" type="button" (click)="getCodesResult(newTags.value); newTags.value=''">
+          <img src={{iconphp}} width="40" height="40">
+        </button>
+      </span>
+      <input type="text" class="form-control" #newTags placeholder="Recherchez une syntaxe Php..."/>
+    </div>
+    <div *ngIf="showSearchResult" class="listcode">
+      <ul class="sanspuce">
+        <li *ngFor="let code of codes">
+          <textarea class="span6" rows="2" id="code" #newCodeSelect name="tags" class="form-control" value="{{code.code}}" readonly></textarea>
+          <button  class="btn btn-secondary" (click)="codeselection(newCodeSelect.value); newCodeSelect.value='';" type="button">
+            <span class="glyphicon glyphicon glyphicon-eye-open"></span>
+          </button>
+          <button class="btn btn-secondary" type="button" (click)="selectCode(newCodeSelect)">Selection</button>
+        </li>
+      </ul>
+    </div>
+</div>
+</div>

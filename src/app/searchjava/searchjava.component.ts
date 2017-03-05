@@ -1,26 +1,28 @@
 import { Component, OnInit } from '@angular/core';
 import { ConnexionService } from '../connexion.service';
+import { TextareaService } from '../textarea.service';
 import { Router } from '@angular/router';
 import { APP_GLOBAL } from '../appglobal';
 @Component({
   selector: 'app-searchjava',
   templateUrl: './searchjava.component.html',
   styleUrls: ['./searchjava.component.css'],
-  providers: [ConnexionService]
+  providers: [ConnexionService, TextareaService]
 })
 export class SearchjavaComponent implements OnInit {
 
   public showSearchResult = false;
   public codes = [];
   iconjava = "./assets/iconjava.png";
-  constructor(private router: Router, private logger: ConnexionService) { }
+  constructor(private router: Router, private logger: ConnexionService, private textarea: TextareaService) { }
 
   ngOnInit() {
   }
-  selectText(elem){
-    elem.focus();
-    elem.select();
+
+  selectCode(newCodeSelect){
+    this.textarea.selectText(newCodeSelect);
   }
+
   codeselection(valuecode:string){
     APP_GLOBAL.updateCodeSelect(valuecode);
     this.router.navigateByUrl('seecode');
