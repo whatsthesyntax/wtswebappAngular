@@ -23,6 +23,10 @@ import { SearchjavaComponent } from './searchjava/searchjava.component';
 import { SearchcsharpComponent } from './searchcsharp/searchcsharp.component';
 import { SearchphpComponent } from './searchphp/searchphp.component';
 import { SearchconnectComponent } from './searchconnect/searchconnect.component';
+import { SeecodeconnectComponent } from './seecodeconnect/seecodeconnect.component';
+import { SearchphpconnectComponent } from './searchphpconnect/searchphpconnect.component';
+import { SearchjavaconnectComponent } from './searchjavaconnect/searchjavaconnect.component';
+import { SearchcsharpconnectComponent } from './searchcsharpconnect/searchcsharpconnect.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +46,11 @@ import { SearchconnectComponent } from './searchconnect/searchconnect.component'
     SearchjavaComponent,
     SearchcsharpComponent,
     SearchphpComponent,
-    SearchconnectComponent
+    SearchconnectComponent,
+    SeecodeconnectComponent,
+    SearchphpconnectComponent,
+    SearchjavaconnectComponent,
+    SearchcsharpconnectComponent
   ],
   imports: [
     RouterModule.forRoot(APP_ROUTES),

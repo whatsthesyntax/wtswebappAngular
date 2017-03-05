@@ -29,7 +29,7 @@ export class EspacepersoComponent implements OnInit {
 
   seeCode(codeValue:string){
     APP_GLOBAL.updateCodeSelect(codeValue);
-    this.router.navigateByUrl('seecode');
+    this.router.navigateByUrl('seecodeconnect');
   }
 
 }

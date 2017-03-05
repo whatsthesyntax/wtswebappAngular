@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-headerconnect',
   templateUrl: './headerconnect.component.html',
@@ -8,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderconnectComponent implements OnInit {
 
   logowts = "./assets/logo.png";
-  constructor() { }
+  constructor(public router: Router) { }
 
   ngOnInit() {
   }
-  
+
+  logout(){
+    localStorage.clear();
+    this.router.navigateByUrl('');
+  }
 }
