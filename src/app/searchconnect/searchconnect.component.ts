@@ -2,22 +2,26 @@ import { Component, OnInit } from '@angular/core';
 import { ConnexionService } from '../connexion.service';
 import { TextareaService } from '../textarea.service';
 import { Router } from '@angular/router';
-import { APP_GLOBAL } from '../appglobal';
+import { APP_GLOBAL, COOKIE } from '../appglobal';
+import { CodesService } from '../codes.service';
 
 @Component({
   selector: 'app-searchconnect',
   templateUrl: './searchconnect.component.html',
   styleUrls: ['./searchconnect.component.css'],
-  providers: [ConnexionService, TextareaService]
+  providers: [ConnexionService, TextareaService, CodesService]
 })
 export class SearchconnectComponent implements OnInit {
 
   public showSearchResult = false;
   public codes = [];
-  constructor(private router: Router, private logger: ConnexionService, private textarea: TextareaService) { }
+  constructor(private router: Router,
+    private logger: ConnexionService,
+    private textarea: TextareaService,
+    private codesService: CodesService) { }
 
   ngOnInit() {
-
+    console.log(JSON.parse(COOKIE.get('currentUser')));
   }
 
   selectCode(newCodeSelect){
@@ -31,7 +35,7 @@ export class SearchconnectComponent implements OnInit {
 
   getCodesResult(tags){
     this.showSearchResult = true;
-    this.logger.getCodes(tags).subscribe(
+    this.codesService.getCodes(tags).subscribe(
       (data) => this.codes = data
     );
   }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { APP_GLOBAL, COOKIE } from '../appglobal';
 @Component({
   selector: 'app-headerconnect',
   templateUrl: './headerconnect.component.html',
@@ -14,7 +15,7 @@ export class HeaderconnectComponent implements OnInit {
   }
 
   logout(){
-    localStorage.clear();
+    COOKIE.removeAll()
     this.router.navigateByUrl('');
   }
 }
