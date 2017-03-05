@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { APP_GLOBAL, COOKIE } from '../appglobal';
 @Component({
   selector: 'app-contribution',
   templateUrl: './contribution.component.html',
@@ -10,6 +10,7 @@ export class ContributionComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log(JSON.parse(COOKIE.get('currentUser')));
   }
 
 }
