@@ -22,6 +22,7 @@ import { SidebarconnectComponent } from './sidebarconnect/sidebarconnect.compone
 import { SearchjavaComponent } from './searchjava/searchjava.component';
 import { SearchcsharpComponent } from './searchcsharp/searchcsharp.component';
 import { SearchphpComponent } from './searchphp/searchphp.component';
+import { SearchconnectComponent } from './searchconnect/searchconnect.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { SearchphpComponent } from './searchphp/searchphp.component';
     SidebarconnectComponent,
     SearchjavaComponent,
     SearchcsharpComponent,
-    SearchphpComponent
+    SearchphpComponent,
+    SearchconnectComponent
   ],
   imports: [
     RouterModule.forRoot(APP_ROUTES),

@@ -7,6 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarconnectComponent implements OnInit {
 
+  iconaccueil = "./assets/iconaccueil.png";
+  iconjava = "./assets/iconjava.png";
+  iconcsharp = "./assets/iconcsharp.png";
+  iconcmenu = "./assets/iconmenu.png";
+  iconphp = "./assets/iconphp.png";
   constructor() { }
 
   ngOnInit() {

@@ -25,7 +25,7 @@ export class ConnexionService {
   public userUrlInscription = 'http://vps381611.ovh.net:8080/WTSAPI/users';
   private usersUrl = 'http://localhost:8080/users';
   /*A faire*/
-  private userUrlConnect = 'http://vps381611.ovh.net:8080/WTSAPI/connexion';
+  private userUrlConnect = 'http://vps381611.ovh.net:8080/WTSAPI/users';
   private userUrlAddCode = 'http://localhost:8080/addCode';
   private userUrlAddTag = 'http://localhost:8080/addTag';
   private userUrlGetCodes = 'http://localhost:8080/getCodes';
@@ -38,14 +38,17 @@ export class ConnexionService {
   logUp(username, email, passeword){
     this.user = new User(username,email,passeword);
     return this.http.post(this.userUrlInscription, JSON.stringify(this.user), {headers:this.headers})
-      .map(this.extractData)
-      .catch(this.handleError);
+    .toPromise()
+    .catch(this.handleError);
   }
 
   /* Connexion*/
   logIn(username, passeword){
     this.userconnect = new UserConnect(username,passeword);
-    return this.http.post(this.userUrlConnect, JSON.stringify(this.userconnect))
+    return this.http.get(this.userUrlInscription).map(
+      (res) => res.json()
+    );
+    /*return this.http.post(this.userUrlConnect, JSON.stringify(this.userconnect))
         .map((response: Response) => {
             // login successful if there's a jwt token in the response
             let user = response.json();
@@ -53,7 +56,7 @@ export class ConnexionService {
                 // store user details and jwt token in local storage to keep user logged in between page refreshes
                 localStorage.setItem('currentUser', JSON.stringify(user));
             }
-        });
+        });*/
   }
 
   /* All users*/
@@ -69,7 +72,6 @@ export class ConnexionService {
       this.code = new Code(codep, langage, t);
       this.http.post(this.userUrlAddCode, JSON.stringify(this.code), {headers: this.headers})
       .toPromise()
-      .then(res => res.json().data)
       .catch(this.handleError);
     }
   }

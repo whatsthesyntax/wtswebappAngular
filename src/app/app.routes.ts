@@ -8,6 +8,7 @@ import { EspacepersoComponent } from "./espaceperso/espaceperso.component";
 import { SearchjavaComponent } from "./searchjava/searchjava.component";
 import { SearchcsharpComponent } from "./searchcsharp/searchcsharp.component";
 import { SearchphpComponent } from "./searchphp/searchphp.component";
+import { SearchconnectComponent } from "./searchconnect/searchconnect.component";
 import { provideRoutes } from "@angular/router";
 
 export const APP_ROUTES = [
@@ -20,5 +21,6 @@ export const APP_ROUTES = [
   {path: 'perso', component: EspacepersoComponent },
   {path: 'java', component: SearchjavaComponent},
   {path: 'csharp', component: SearchcsharpComponent},
-  {path: 'php', component: SearchphpComponent}
+  {path: 'php', component: SearchphpComponent},
+  {path: 'seachconnect', component: SearchconnectComponent}
 ];
