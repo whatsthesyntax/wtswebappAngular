@@ -1,7 +1,7 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { ConnexionService } from '../connexion.service';
 import { Router } from '@angular/router';
-import { APP_GLOBAL } from '../appglobal';
+import { APP_GLOBAL, COOKIE } from '../appglobal';
 
 @Component({
   selector: 'app-espaceperso',
@@ -16,6 +16,7 @@ export class EspacepersoComponent implements OnInit {
   constructor(private logger: ConnexionService, private router: Router) { }
 
   ngOnInit() {
+    console.log(JSON.parse(COOKIE.get('currentUser')));
   }
 
   ngAfterViewInit() {

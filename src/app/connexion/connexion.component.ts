@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ConnexionService } from '../connexion.service';
-import { APP_GLOBAL } from '../appglobal';
+import { APP_GLOBAL, COOKIE } from '../appglobal';
 import { Router } from '@angular/router';
 import { Connect } from '../connect';
+
 
 @Component({
   selector: 'app-connexion',
@@ -13,7 +14,8 @@ import { Connect } from '../connect';
 export class ConnexionComponent implements OnInit {
 
   public users = [];
-  constructor(public logger: ConnexionService, public router: Router) { }
+  constructor(public logger: ConnexionService,
+    public router: Router) { }
 
   ngOnInit() {
   }
@@ -26,7 +28,7 @@ export class ConnexionComponent implements OnInit {
         for(let user of this.users){
             if(user.name===username && user.password===passeword){
               connect = new Connect(true);
-              localStorage.setItem('currentUser', JSON.stringify(user));
+              COOKIE.put('currentUser', JSON.stringify(user));
             }
         }
         if(!connect.etat){
