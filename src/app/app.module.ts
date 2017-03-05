@@ -6,7 +6,6 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
 import { SearchareaComponent } from './searcharea/searcharea.component';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { APP_ROUTES } from "./app.routes";
@@ -27,13 +26,14 @@ import { SeecodeconnectComponent } from './seecodeconnect/seecodeconnect.compone
 import { SearchphpconnectComponent } from './searchphpconnect/searchphpconnect.component';
 import { SearchjavaconnectComponent } from './searchjavaconnect/searchjavaconnect.component';
 import { SearchcsharpconnectComponent } from './searchcsharpconnect/searchcsharpconnect.component';
+import { AddcodeComponent } from './addcode/addcode.component';
+import { CookieService } from 'angular2-cookie/services/cookies.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     SidebarComponent,
     HeaderComponent,
-    FooterComponent,
     SearchareaComponent,
     ConnexionComponent,
     InscriptionComponent,
@@ -50,7 +50,8 @@ import { SearchcsharpconnectComponent } from './searchcsharpconnect/searchcsharp
     SeecodeconnectComponent,
     SearchphpconnectComponent,
     SearchjavaconnectComponent,
-    SearchcsharpconnectComponent
+    SearchcsharpconnectComponent,
+    AddcodeComponent
   ],
   imports: [
     RouterModule.forRoot(APP_ROUTES),
@@ -59,7 +60,7 @@ import { SearchcsharpconnectComponent } from './searchcsharpconnect/searchcsharp
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

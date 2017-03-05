@@ -16,7 +16,7 @@
       <ul class="sanspuce">
         <li *ngFor="let code of codes">
           <textarea class="span6" rows="2" id="code" #newCodeSelect name="tags" class="form-control" value="{{code.code}}" readonly></textarea>
-          <button  class="btn btn-secondary" (click)="codeselection(newCodeSelect.value); newCodeSelect.value='';" type="button">
+          <button  class="btn btn-secondary" (click)="codeselection(newCodeSelect.value,code.codeId); newCodeSelect.value='';" type="button">
             <span class="glyphicon glyphicon glyphicon-eye-open"></span>
           </button>
           <button class="btn btn-secondary" type="button" (click)="selectCode(newCodeSelect)">Selection</button>

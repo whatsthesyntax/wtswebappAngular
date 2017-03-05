@@ -10,6 +10,10 @@ import { SearchjavaComponent } from "./searchjava/searchjava.component";
 import { SearchcsharpComponent } from "./searchcsharp/searchcsharp.component";
 import { SearchphpComponent } from "./searchphp/searchphp.component";
 import { SearchconnectComponent } from "./searchconnect/searchconnect.component";
+import { SearchcsharpconnectComponent } from "./searchcsharpconnect/searchcsharpconnect.component";
+import { SearchphpconnectComponent } from "./searchphpconnect/searchphpconnect.component";
+import { SearchjavaconnectComponent } from "./searchjavaconnect/searchjavaconnect.component";
+import { AddcodeComponent } from "./addcode/addcode.component";
 import { provideRoutes } from "@angular/router";
 
 export const APP_ROUTES = [
@@ -24,5 +28,9 @@ export const APP_ROUTES = [
   {path: 'java', component: SearchjavaComponent},
   {path: 'csharp', component: SearchcsharpComponent},
   {path: 'php', component: SearchphpComponent},
-  {path: 'seachconnect', component: SearchconnectComponent}
+  {path: 'seachconnect', component: SearchconnectComponent},
+  {path: 'add', component: AddcodeComponent},
+  {path: 'javaconnect', component: SearchjavaconnectComponent},
+  {path: 'phpconnect', component: SearchphpconnectComponent},
+  {path: 'csharpconnect', component: SearchcsharpconnectComponent}
 ];

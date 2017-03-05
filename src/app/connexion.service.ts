@@ -12,30 +12,34 @@ import { Tag } from  './tag';
 
 @Injectable()
 export class ConnexionService {
+  /*attributs*/
   userconnect: UserConnect;
   user: User;
   code: Code;
-  sreq: SearchReq;
   tag: Tag;
-  /*Autorisation*/
-  createAuthorizationHeader(headers: Headers) {
-    headers.append('Authorization', 'Basic ' +
-      btoa('username:password'));
-  }
+
+  public headers = new Headers({"Content-Type": "application/json"});
+  public options = new RequestOptions({ headers: this.headers });
+
   private userUrlInscription = 'http://vps381611.ovh.net:8080/WTSAPI/users';
   private usersUrl = 'http://vps381611.ovh.net:8080/WTSAPI//users';
-  /*A faire*/
 
+  /*A faire*/
   private userUrlConnect = 'http://vps381611.ovh.net:8080/WTSAPI/users';
   private userUrlAddCode = 'http://localhost:8080/addCode';
   private userUrlAddTag = 'http://localhost:8080/addTag';
-  private userUrlGetCodes = 'http://localhost:8080/getCodes';
   private userUrlGetMesCodes = 'http://localhost:8080/getCodes';
   private userUrlGetMesLangages = 'http://localhost:8080/getCodes';
 
-  headers = new Headers({"Content-Type": "application/json"});
-  options = new RequestOptions({ headers: this.headers });
+
   constructor(private http: Http) { }
+
+  /*Autorisation*/
+  createAuthorizationHeader(headers: Headers, username: string, password: string) {
+    headers.append('Authorization', 'Basic ' +
+      btoa('username:password'));
+  }
+
   /*Inscription*/
   logUp(name, email, password){
     this.user = new User(name,email,password);
@@ -68,15 +72,7 @@ export class ConnexionService {
       .catch(this.handleError);
     }
   }
-  /*Search for a code*/
-  getCodes(searchreq:string){
-    this.sreq = new SearchReq(searchreq);
-    const url = this.userUrlGetCodes+'/'+searchreq;
-    console.log(url);
-    return this.http.get('./assets/codes.json').map(
-      (res) => res.json()
-    );
-  }
+
   /*Mes codes sauvegarder*/
   getMesCodes(){
     return this.http.get('./assets/mescodes.json').map(
