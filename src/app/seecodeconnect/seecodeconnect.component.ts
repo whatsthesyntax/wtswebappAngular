@@ -28,6 +28,7 @@ export class SeecodeconnectComponent implements OnInit {
   saveCode(){
     this.user = JSON.parse(COOKIE.get('currentUser'));
     this.code = JSON.parse(COOKIE.get('codeselect'));
+    this.code.user = this.user.codeId;
     this.textarea.addCodePrive(this.code, this.user.name, this.user.password);
   }
 }

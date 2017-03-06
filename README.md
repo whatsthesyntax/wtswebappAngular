@@ -40,13 +40,14 @@ Il faut changer les liens d'url dans connexion.service.ts pour tester les appele
 
 ## TODO
 
--get Les langages par Utilisateur
--get Les codes par Utilisateur
--get La connexion retour user
--post La création d'un code perso
--put La modification d'un code perso
--post La création d'un code public (soumettre)
--post Validation d'un code public
--get recherche par langage
--get Tous les langages
--get tous les mots clès
+-get Les langages par Utilisateur\n
+-get Les codes par Utilisateur\n
+-get La connexion retour user\n
+-post La création d'un code perso\n
+-put La modification d'un code perso\n
+-post La création d'un code public (soumettre)\n
+-post Validation d'un code public\n
+-get recherche de codes par requête (string)
+-get recherche par langage (avec un objet requête voir dans codes.service.ts et dans searchreq.ts )\n
+-get Tous les langages\n
+-get tous les mots clès\n

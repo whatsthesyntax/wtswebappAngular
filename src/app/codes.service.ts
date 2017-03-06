@@ -19,6 +19,7 @@ export class CodesService {
   public options = new RequestOptions({ headers: this.headers });
   /*URLs*/
   private userUrlGetCodes = 'http://localhost:8080/getCodes';
+  private userUrlGetCodesByLangage = 'http://localhost:8080/getCodes';
   private userUrlDeleteCode = 'http://localhost:8080/deleteCodes';
 
   constructor(private http: Http) { }
@@ -28,11 +29,20 @@ export class CodesService {
     headers.append('Authorization', 'Basic ' +
       btoa(username+':'+password));
   }
-  
+
   /*Search for codes*/
   getCodes(searchreq:string){
-    this.sreq = new SearchReq(searchreq);
     const url = this.userUrlGetCodes+'/'+searchreq;
+    return this.http.get('./assets/codes.json')
+    .map(
+      (res) => res.json()
+    );
+  }
+
+  /*Search for codes by langage*/
+  getCodesByLangage(langage:string, searchreq:string){
+    this.sreq = new SearchReq(searchreq, langage);
+    let url = this.userUrlGetCodesByLangage+'/'+JSON.stringify(this.sreq);
     return this.http.get('./assets/codes.json')
     .map(
       (res) => res.json()
