@@ -15,10 +15,20 @@ export class CodesService {
   /*Atrributs*/
   sreq: SearchReq;
 
+  public headers = new Headers({"Content-Type": "application/json"});
+  public options = new RequestOptions({ headers: this.headers });
   /*URLs*/
   private userUrlGetCodes = 'http://localhost:8080/getCodes';
+  private userUrlDeleteCode = 'http://localhost:8080/deleteCodes';
 
   constructor(private http: Http) { }
+
+  /*Autorisation*/
+  createAuthorizationHeader(headers: Headers, username: string, password: string) {
+    headers.append('Authorization', 'Basic ' +
+      btoa(username+':'+password));
+  }
+  
   /*Search for codes*/
   getCodes(searchreq:string){
     this.sreq = new SearchReq(searchreq);
@@ -27,5 +37,10 @@ export class CodesService {
     .map(
       (res) => res.json()
     );
+  }
+
+  /*supprimer un code privé*/
+  deleteCodePrive(codeId:number, userId:number){
+
   }
 }

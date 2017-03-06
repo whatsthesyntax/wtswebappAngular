@@ -13,10 +13,10 @@ export class EspacepersoComponent implements OnInit {
 
   public mescodes = [];
   public meslangages= [];
-  constructor(private logger: ConnexionService, private router: Router) { }
+  constructor(private logger: ConnexionService,
+    private router: Router) { }
 
   ngOnInit() {
-    console.log(JSON.parse(COOKIE.get('currentUser')));
   }
 
   ngAfterViewInit() {

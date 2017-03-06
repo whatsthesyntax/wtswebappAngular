@@ -14,8 +14,8 @@ import { Connect } from '../connect';
 export class ConnexionComponent implements OnInit {
 
   public users = [];
-  constructor(public logger: ConnexionService,
-    public router: Router) { }
+  constructor(private logger: ConnexionService,
+    private router: Router) { }
 
   ngOnInit() {
   }

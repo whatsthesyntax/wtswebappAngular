@@ -3,7 +3,7 @@ import { ConnexionService } from '../connexion.service';
 import { CodesService } from '../codes.service';
 import { TextareaService } from '../textarea.service';
 import { Router } from '@angular/router';
-import { APP_GLOBAL } from '../appglobal';
+import { APP_GLOBAL, COOKIE } from '../appglobal';
 
 @Component({
   selector: 'app-searcharea',
@@ -38,11 +38,10 @@ export class SearchareaComponent implements OnInit {
     let result = this.codeService.getCodes(searchreq);
     this.showSearchResult = true;
     result.subscribe((data) => this.codes=data);
+    COOKIE.put('codes', JSON.stringify(this.codes));
     result.subscribe(function(data){
         for(let code of data){
           console.log(code);
-          console.log(this.showSearchResult);
-          localStorage.setItem(''+code.codeId, JSON.stringify(code));
         }
     });
   }

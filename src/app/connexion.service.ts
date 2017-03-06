@@ -37,7 +37,7 @@ export class ConnexionService {
   /*Autorisation*/
   createAuthorizationHeader(headers: Headers, username: string, password: string) {
     headers.append('Authorization', 'Basic ' +
-      btoa('username:password'));
+      btoa(username+':'+password));
   }
 
   /*Inscription*/

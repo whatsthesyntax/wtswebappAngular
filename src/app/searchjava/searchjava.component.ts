@@ -1,20 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 import { ConnexionService } from '../connexion.service';
 import { TextareaService } from '../textarea.service';
+import { CodesService } from '../codes.service';
 import { Router } from '@angular/router';
 import { APP_GLOBAL } from '../appglobal';
 @Component({
   selector: 'app-searchjava',
   templateUrl: './searchjava.component.html',
   styleUrls: ['./searchjava.component.css'],
-  providers: [ConnexionService, TextareaService]
+  providers: [ConnexionService, TextareaService, CodesService]
 })
 export class SearchjavaComponent implements OnInit {
 
   public showSearchResult = false;
   public codes = [];
   iconjava = "./assets/iconjava.png";
-  constructor(private router: Router, private logger: ConnexionService, private textarea: TextareaService) { }
+  constructor(private router: Router,
+    private logger: ConnexionService,
+    private textarea: TextareaService,
+    private codeService: CodesService) { }
 
   ngOnInit() {
   }
@@ -30,7 +34,7 @@ export class SearchjavaComponent implements OnInit {
 
   getCodesResult(tags){
     this.showSearchResult = true;
-    this.logger.getCodes(tags).subscribe(
+    this.codeService.getCodes(tags).subscribe(
       (data) => this.codes = data
     );
   }

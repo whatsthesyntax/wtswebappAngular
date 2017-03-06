@@ -29,12 +29,12 @@ export class TextareaService {
   }
 
   /*Sauvegarde des codes*/
-  addCodePrive(code, username:string, password:string){
+  addCodePrive(code, codId:number, username:string, password:string){
     this.headers = new Headers({"Content-Type": "application/json"});
     this.createAuthorizationHeader(this.headers, username, password);
-    return this.http.post(this.userUrlAddCodePrive, JSON.stringify(code), {headers:this.headers})
+    /*return this.http.post(this.userUrlAddCodePrive, JSON.stringify(code), {headers:this.headers})
     .toPromise()
-    .catch(this.handleError);
+    .catch(this.handleError);*/
   }
 
   private handleError (error: Response | any) {

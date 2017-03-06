@@ -10,7 +10,6 @@ export class ContributionComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(JSON.parse(COOKIE.get('currentUser')));
   }
 
 }

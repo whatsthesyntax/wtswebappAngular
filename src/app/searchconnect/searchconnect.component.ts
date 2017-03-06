@@ -15,13 +15,13 @@ export class SearchconnectComponent implements OnInit {
 
   public showSearchResult = false;
   public codes = [];
+
   constructor(private router: Router,
     private logger: ConnexionService,
     private textarea: TextareaService,
     private codesService: CodesService) { }
 
   ngOnInit() {
-    console.log(JSON.parse(COOKIE.get('currentUser')));
   }
 
   selectCode(newCodeSelect){
@@ -39,5 +39,5 @@ export class SearchconnectComponent implements OnInit {
       (data) => this.codes = data
     );
   }
-
+  
 }
