@@ -24,10 +24,11 @@ export class EspacepersoComponent implements OnInit {
   }
 
   ngAfterViewInit() {
-    this.logger.getMesLangages().subscribe(
+    this.user = JSON.parse(COOKIE.get('currentUser'));
+    this.codeService.getMesLangages(this.user).subscribe(
       (data) => this.meslangages = data.langages
     );
-    this.logger.getMesCodes().subscribe(
+    this.codeService.getMesCodes(this.user).subscribe(
       (data) => this.mescodes = data
     );
   }

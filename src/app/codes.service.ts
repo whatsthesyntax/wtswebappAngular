@@ -14,6 +14,7 @@ import { Tag } from  './tag';
 export class CodesService {
   /*Atrributs*/
   sreq: SearchReq;
+  code: Code;
 
   public headers = new Headers({"Content-Type": "application/json"});
   public options = new RequestOptions({ headers: this.headers });
@@ -21,6 +22,9 @@ export class CodesService {
   private userUrlGetCodes = 'http://localhost:8080/getCodes';
   private userUrlGetCodesByLangage = 'http://localhost:8080/getCodes';
   private userUrlDeleteCodePrive = 'http://localhost:8080/deleteCodes';
+  private userUrlAddCode = 'http://localhost:8080/addCode';
+  private userUrlGetMesCodes = 'http://vps381611.ovh.net:8080/WTSAPI/users/usercodes';
+  private userUrlGetMesLangages = 'http://vps381611.ovh.net:8080/WTSAPI/users/userlanguages';
 
   constructor(private http: Http) { }
 
@@ -51,11 +55,44 @@ export class CodesService {
 
   /*supprimer un code privé*/
   deleteCodePrive(code, username: string, password: string){
+    /*A decomenter pour tester*/
     /*this.headers = new Headers({"Content-Type": "application/json"});
     this.createAuthorizationHeader(this.headers, username, password);
     return this.http.put(this.userUrlDeleteCodePrive, JSON.stringify(code), {headers:this.headers})
     .toPromise()
     .catch(this.handleError);*/
+  }
+
+
+
+  /*Add Code*/
+  addCode (codep, langage, tagsp:string[]){
+    for(var t of tagsp){
+      this.code = new Code(codep, langage, t);
+      this.http.post(this.userUrlAddCode, JSON.stringify(this.code), {headers: this.headers})
+      .toPromise()
+      .catch(this.handleError);
+    }
+  }
+
+  /*Mes codes sauvegarder*/
+  getMesCodes(user){
+    this.headers = new Headers({"Content-Type": "application/json"});
+    this.createAuthorizationHeader(this.headers, user.name, user.password);
+    let url = this.userUrlGetMesCodes+'/'+user.userId;
+    /*Remplacer avec l'url api et les options {headers: this.headers}*/
+    return this.http.get('./assets/mescodes.json').map(
+      (res) => res.json()
+    );
+  }
+  /*Mes langages*/
+  getMesLangages(user){
+    this.headers = new Headers({"Content-Type": "application/json"});
+    this.createAuthorizationHeader(this.headers, user.name, user.password);
+    let url = this.userUrlGetMesLangages+'/'+user.userId;
+    return this.http.get('./assets/langages.json').map(
+      (res) => res.json()
+    );
   }
 
   private handleError (error: Response | any) {
