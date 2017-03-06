@@ -21,6 +21,7 @@ export class SearchjavaconnectComponent implements OnInit {
     private codeService: CodesService) { }
 
   ngOnInit() {
+    console.log(COOKIE);
   }
 
   selectCode(newCodeSelect){

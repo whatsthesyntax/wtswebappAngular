@@ -19,25 +19,26 @@ export class SearchconnectComponent implements OnInit {
   constructor(private router: Router,
     private logger: ConnexionService,
     private textarea: TextareaService,
-    private codesService: CodesService) { }
+    private codeService: CodesService) { }
 
   ngOnInit() {
+    console.log(COOKIE.get('currentUser'));
   }
 
   selectCode(newCodeSelect){
     this.textarea.selectText(newCodeSelect);
   }
 
-  codeselection(valuecode:string){
+  codeselection(valuecode:string, code){
     APP_GLOBAL.updateCodeSelect(valuecode);
     this.router.navigateByUrl('seecodeconnect');
+    COOKIE.put('codeselect', JSON.stringify(code));
   }
 
-  getCodesResult(tags){
+  getCodesResult(searchreq){
+    let result = this.codeService.getCodes(searchreq);
     this.showSearchResult = true;
-    this.codesService.getCodes(tags).subscribe(
-      (data) => this.codes = data
-    );
+    result.subscribe((data) => this.codes=data);
   }
-  
+
 }

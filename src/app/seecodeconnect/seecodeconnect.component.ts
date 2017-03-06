@@ -11,13 +11,14 @@ import { APP_GLOBAL, COOKIE } from '../appglobal';
   providers: [ConnexionService, TextareaService]
 })
 export class SeecodeconnectComponent implements OnInit {
-  codeselect="";
-  codeId:number;
+  public codeselect="";
+  public codeId:number;
+  public code;
+  public user;
   constructor(private textarea: TextareaService) { }
 
   ngOnInit() {
     this.codeselect = APP_GLOBAL.getCodeSelect();
-    this.codeId = APP_GLOBAL.getCodeId();
   }
 
   selectCode(newCodeSelect){
@@ -25,8 +26,8 @@ export class SeecodeconnectComponent implements OnInit {
   }
 
   saveCode(){
-    this.textarea.addCodePrive(JSON.parse(COOKIE.get(''+this.codeId)), this.codeId,
-              JSON.parse(COOKIE.get('currentUser')).name,
-              JSON.parse(COOKIE.get('currentUser')).password);
+    this.user = JSON.parse(COOKIE.get('currentUser'));
+    this.code = JSON.parse(COOKIE.get('codeselect'));
+    this.textarea.addCodePrive(this.code, this.user.name, this.user.password);
   }
 }

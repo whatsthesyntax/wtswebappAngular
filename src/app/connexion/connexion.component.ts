@@ -28,6 +28,7 @@ export class ConnexionComponent implements OnInit {
         for(let user of this.users){
             if(user.name===username && user.password===passeword){
               connect = new Connect(true);
+              console.log(JSON.stringify(user));
               COOKIE.put('currentUser', JSON.stringify(user));
             }
         }

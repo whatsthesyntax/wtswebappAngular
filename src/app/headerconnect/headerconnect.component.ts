@@ -15,7 +15,7 @@ export class HeaderconnectComponent implements OnInit {
   }
 
   logout(){
-    COOKIE.remove('currentUser')
+    COOKIE.remove('currentUser');
     this.router.navigateByUrl('');
   }
 }

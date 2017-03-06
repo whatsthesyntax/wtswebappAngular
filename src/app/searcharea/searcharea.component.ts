@@ -38,11 +38,8 @@ export class SearchareaComponent implements OnInit {
     let result = this.codeService.getCodes(searchreq);
     this.showSearchResult = true;
     result.subscribe((data) => this.codes=data);
-    COOKIE.put('codes', JSON.stringify(this.codes));
     result.subscribe(function(data){
-        for(let code of data){
-          console.log(code);
-        }
+        COOKIE.put('codes', JSON.stringify(data));
     });
   }
 }
