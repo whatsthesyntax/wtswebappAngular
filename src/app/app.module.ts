@@ -28,6 +28,7 @@ import { SearchjavaconnectComponent } from './searchjavaconnect/searchjavaconnec
 import { SearchcsharpconnectComponent } from './searchcsharpconnect/searchcsharpconnect.component';
 import { AddcodeComponent } from './addcode/addcode.component';
 import { CookieService } from 'angular2-cookie/services/cookies.service';
+import { EditcodeComponent } from './editcode/editcode.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { CookieService } from 'angular2-cookie/services/cookies.service';
     SearchphpconnectComponent,
     SearchjavaconnectComponent,
     SearchcsharpconnectComponent,
-    AddcodeComponent
+    AddcodeComponent,
+    EditcodeComponent
   ],
   imports: [
     RouterModule.forRoot(APP_ROUTES),

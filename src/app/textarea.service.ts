@@ -37,6 +37,15 @@ export class TextareaService {
     .catch(this.handleError);
   }
 
+  /*Edition d'un code*/
+  editionCodePrive(code, username:string, password:string){
+    this.headers = new Headers({"Content-Type": "application/json"});
+    this.createAuthorizationHeader(this.headers, username, password);
+    return this.http.put(this.userUrlAddCodePrive, JSON.stringify(code), {headers:this.headers})
+    .toPromise()
+    .catch(this.handleError);
+  }
+
   private handleError (error: Response | any) {
     let errMsg: string;
     if (error instanceof Response) {

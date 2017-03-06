@@ -1,9 +1,10 @@
 export class Globalvariables {
+
+  constructor() { }
   /*Constante d'un code selectionné dans les résultats d'une recherche*/
   codeselect = "";
   /*view connect*/
   connect = false;
-  constructor() { }
   /*Mock user name*/
   mockusername="";
   updateCodeSelect(newvalue:string){
@@ -12,6 +13,16 @@ export class Globalvariables {
   /*Code id*/
   codeId:number;
 
+  /*code*/
+  code;
+
+  getCode(){
+    return this.code;
+  }
+
+  updateCode(newvalue){
+    this.code = newvalue;
+  }
   getCodeId():number{
     return this.codeId;
   }
