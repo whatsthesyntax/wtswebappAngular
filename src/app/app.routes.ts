@@ -15,6 +15,7 @@ import { SearchphpconnectComponent } from "./searchphpconnect/searchphpconnect.c
 import { SearchjavaconnectComponent } from "./searchjavaconnect/searchjavaconnect.component";
 import { AddcodeComponent } from "./addcode/addcode.component";
 import { EditcodeComponent } from "./editcode/editcode.component";
+import { UserparamsComponent } from "./userparams/userparams.component";
 import { provideRoutes } from "@angular/router";
 
 export const APP_ROUTES = [
@@ -34,5 +35,6 @@ export const APP_ROUTES = [
   {path: 'javaconnect', component: SearchjavaconnectComponent},
   {path: 'phpconnect', component: SearchphpconnectComponent},
   {path: 'csharpconnect', component: SearchcsharpconnectComponent},
-  {path: 'editcode', component: EditcodeComponent}
+  {path: 'editcode', component: EditcodeComponent},
+  {path: 'paramperso', component: UserparamsComponent}
 ];

@@ -21,7 +21,8 @@ export class ConnexionService {
   public options = new RequestOptions({ headers: this.headers });
 
   private userUrlInscription = 'http://vps381611.ovh.net:8080/WTSAPI/users';
-  private usersUrl = 'http://vps381611.ovh.net:8080/WTSAPI//users';
+  private userUrlUpdate = 'http://vps381611.ovh.net:8080/WTSAPI/users';
+  private usersUrl = 'http://vps381611.ovh.net:8080/WTSAPI/users';
 
   /*A faire*/
   private userUrlConnect = 'http://vps381611.ovh.net:8080/WTSAPI/users';
@@ -52,6 +53,19 @@ export class ConnexionService {
     );
   }
 
+  /* Connexion*/
+  getUser(userId){
+    return this.http.get(this.usersUrl+'/'+userId).map(
+      (res) => res.json()
+    );
+  }
+
+  /*Modifier l'utilisateur*/
+  updateUser(user){
+    return this.http.put(this.userUrlInscription, JSON.stringify(user), {headers:this.headers})
+    .toPromise()
+    .catch(this.handleError);
+  }
   /**/
   private extractData(res: Response) {
     let body = res.json();
