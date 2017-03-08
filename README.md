@@ -80,3 +80,4 @@ Et :
 "valide":true}
 
 difficilement exploitable.
+Le dernier problème est lors du update d'un utilisateur ne passe pas {id: "", name:""}

@@ -28,7 +28,6 @@ export class UserparamsComponent implements OnInit {
 
   ngAfterViewInit() {
 
-
   }
 
   setShowName(){
@@ -42,24 +41,26 @@ export class UserparamsComponent implements OnInit {
   }
 
   modifMdp(newValue){
+    console.log(JSON.parse(COOKIE.get('currentUser')));
     let user = {id:this.user.userId, password:newValue}
-    this.user.name = newValue;
-    COOKIE.remove('currentUser');
-    COOKIE.remove('currentUser', JSON.stringify(user));
+    this.user.password = newValue;
+    console.log("this.user : "+this.user);
+    COOKIE.put('currentUser', JSON.stringify(this.user));
+    console.log(JSON.parse(COOKIE.get('currentUser')));
     this.logger.updateUser(user);
   }
   modifName(newValue){
+    console.log(JSON.parse(COOKIE.get('currentUser')));
     let user = {id:this.user.userId, name:newValue}
     this.user.name = newValue;
-    COOKIE.remove('currentUser');
-    COOKIE.remove('currentUser', JSON.stringify(user));
+    COOKIE.put('currentUser', JSON.stringify(this.user));
     this.logger.updateUser(user);
   }
   modifEmail(newValue){
+    console.log(JSON.parse(COOKIE.get('currentUser')));
     let user = {id:this.user.userId, email:newValue}
-    this.user.name = newValue;
-    COOKIE.remove('currentUser');
-    COOKIE.remove('currentUser', JSON.stringify(user));
+    this.user.email = newValue;
+    COOKIE.put('currentUser', JSON.stringify(this.user));
     this.logger.updateUser(user);
   }
 }
