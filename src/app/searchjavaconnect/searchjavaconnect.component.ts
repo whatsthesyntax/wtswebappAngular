@@ -33,11 +33,10 @@ export class SearchjavaconnectComponent implements OnInit {
     this.router.navigateByUrl('seecode');
   }
 
-  getCodesResult(tags){
+  getCodesResult(searchreq){
+    let result = this.codeService.getCodesByLangage("java", searchreq);
     this.showSearchResult = true;
-    this.codeService.getCodes(tags).subscribe(
-      (data) => this.codes = data
-    );
+    result.subscribe((data) => this.codes=data);
   }
 
 }

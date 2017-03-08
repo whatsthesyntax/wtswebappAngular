@@ -25,9 +25,6 @@ export class SidebarComponent implements OnInit {
   }
 
   ngAfterViewInit() {
-    
+
   }
-
-
-
 }

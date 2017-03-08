@@ -32,11 +32,10 @@ export class SearchcsharpconnectComponent implements OnInit {
     this.router.navigateByUrl('seecode');
   }
 
-  getCodesResult(tags){
+  getCodesResult(searchreq){
+    let result = this.codeService.getCodesByLangage("csharp", searchreq);
     this.showSearchResult = true;
-    this.codeService.getCodes(tags).subscribe(
-      (data) => this.codes = data
-    );
+    result.subscribe((data) => this.codes=data);
   }
 
 }

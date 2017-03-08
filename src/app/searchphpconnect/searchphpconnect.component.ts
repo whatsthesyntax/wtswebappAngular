@@ -32,11 +32,10 @@ export class SearchphpconnectComponent implements OnInit {
     this.router.navigateByUrl('seecode');
   }
 
-  getCodesResult(tags){
+  getCodesResult(searchreq){
+    let result = this.codeService.getCodesByLangage("php", searchreq);
     this.showSearchResult = true;
-    this.codeService.getCodes(tags).subscribe(
-      (data) => this.codes = data
-    );
+    result.subscribe((data) => this.codes=data);
   }
 
 }
