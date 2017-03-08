@@ -31,8 +31,8 @@ export class SearchconnectComponent implements OnInit {
 
   codeselection(valuecode:string, code){
     APP_GLOBAL.updateCodeSelect(valuecode);
-    this.router.navigateByUrl('seecodeconnect');
     COOKIE.put('codeselect', JSON.stringify(code));
+    this.router.navigateByUrl('seecodeconnect');
   }
 
   getCodesResult(searchreq){

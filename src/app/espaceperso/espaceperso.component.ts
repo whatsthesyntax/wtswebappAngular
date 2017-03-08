@@ -17,7 +17,7 @@ export class EspacepersoComponent implements OnInit {
   public user;
   constructor(private logger: ConnexionService,
     private router: Router,
-  private codeService: CodesService) { }
+    private codeService: CodesService) { }
 
   ngOnInit() {
 
@@ -25,10 +25,10 @@ export class EspacepersoComponent implements OnInit {
 
   ngAfterViewInit() {
     this.user = JSON.parse(COOKIE.get('currentUser'));
-    this.codeService.getMesLangages(this.user).subscribe(
+    this.codeService.getMesLangages(this.user.userId).subscribe(
       (data) => this.meslangages = data.langages
     );
-    this.codeService.getMesCodes(this.user).subscribe(
+    this.codeService.getMesCodes(this.user.userId).subscribe(
       (data) => this.mescodes = data
     );
   }

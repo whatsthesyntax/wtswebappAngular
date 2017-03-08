@@ -13,6 +13,13 @@ import { APP_GLOBAL, COOKIE } from '../appglobal';
 export class SeecodeconnectComponent implements OnInit {
   public codeselect="";
   public codeId:number;
+
+  tags=[];
+  langage={langage:""};
+  codei={code:"", description:""};
+
+  codetoadd = {};
+
   public code;
   public user;
   constructor(private textarea: TextareaService) { }
@@ -28,7 +35,11 @@ export class SeecodeconnectComponent implements OnInit {
   saveCode(){
     this.user = JSON.parse(COOKIE.get('currentUser'));
     this.code = JSON.parse(COOKIE.get('codeselect'));
-    this.code.user = this.user.codeId;
-    this.textarea.addCodePrive(this.code, this.user.name, this.user.password);
+    for(let tag of this.code.tags){
+      this.tags.push({tag:tag.tag});
+    }
+    this.codei.code = this.code.code;
+    this.codetoadd = {code:this.codei, tags:this.tags, langage:this.code.langage.langage, userid:this.user.userId, visible:false}
+    this.textarea.addCodePrive(this.codetoadd, this.user.name, this.user.password);
   }
 }

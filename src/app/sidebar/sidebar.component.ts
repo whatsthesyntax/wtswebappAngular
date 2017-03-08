@@ -15,7 +15,7 @@ export class SidebarComponent implements OnInit {
   iconcmenu = "./assets/iconmenu.png";
   iconphp = "./assets/iconphp.png";
 
-  
+
   public allLangages = [];
   public allTags = [];
   constructor(private logger: ConnexionService, private router: Router) { }
@@ -25,11 +25,7 @@ export class SidebarComponent implements OnInit {
   }
 
   ngAfterViewInit() {
-    this.logger.getLangagesTags().subscribe(
-      (data) => this.allLangages = data.langages,
-      (data) => this.allTags = data.tags
-    );
-
+    
   }
 
 

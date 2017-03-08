@@ -13,6 +13,7 @@ export class TextareaService {
   public headers:Headers;
   public options:RequestOptions;
 
+
   /*Les URLs*/
   private userUrlAddCodePrive = 'http://vps381611.ovh.net:8080/WTSAPI/codes';
   constructor(private http: Http) { }
@@ -31,7 +32,7 @@ export class TextareaService {
   /*Sauvegarde des codes*/
   addCodePrive(code, username:string, password:string){
     this.headers = new Headers({"Content-Type": "application/json"});
-    this.createAuthorizationHeader(this.headers, username, password);
+    /*this.createAuthorizationHeader(this.headers, username, password);*/
     return this.http.post(this.userUrlAddCodePrive, JSON.stringify(code), {headers:this.headers})
     .toPromise()
     .catch(this.handleError);
@@ -39,8 +40,8 @@ export class TextareaService {
 
   /*Edition d'un code*/
   editionCodePrive(code, username:string, password:string){
-    this.headers = new Headers({"Content-Type": "application/json"});
-    this.createAuthorizationHeader(this.headers, username, password);
+    /*this.headers = new Headers({"Content-Type": "application/json"});
+    this.createAuthorizationHeader(this.headers, username, password);*/
     return this.http.put(this.userUrlAddCodePrive, JSON.stringify(code), {headers:this.headers})
     .toPromise()
     .catch(this.handleError);

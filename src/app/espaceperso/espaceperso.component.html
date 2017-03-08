@@ -10,7 +10,7 @@
         <ul class="sanspuce">
           <li *ngFor="let code of mescodes">
             <div *ngIf="code.langage.langage==langage.langage" class="row quote-container">
-              <i class="pin" (click)="deleteCode(code)"></i>
+              <div (click)="deleteCode(code)"><i class="pin"></i></div>
               <blockquote class="note yellow" (click)="seeCode(code)">
                 {{code.code}}
               </blockquote>

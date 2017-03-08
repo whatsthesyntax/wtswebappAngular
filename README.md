@@ -51,3 +51,32 @@ Il faut changer les liens d'url dans connexion.service.ts pour tester les appele
 -get recherche par langage (avec un objet requête voir dans codes.service.ts et dans searchreq.ts )
 -get Tous les langages
 -get tous les mots clès
+
+## PROBLEMES
+L'ajout de code (perso ou public est bon).
+Pour alimenter notre base il suffit de se connecter et d'utiliser le formulaire contribution.
+J'ai ajouter des codes perso mais je n'arrive pas à les récupérer avec GET code par utilisateur.
+J'ai ajouter une boucle for pour chaque un des langage et je n'arrive pas à les récupérer avec la recherche.
+Pour la recherche par langage j'utilise la même que pour la recherche, je préfixe la requête avec le langage.
+le résultat des codes retourné n'est pas uniforme, exemple :
+{"codeId":20,
+"code":"for ($i = 1; $i <= 10; $i++){\n    echo $i;\n}",
+"description":"",
+"tags":[25,3],
+"langage":{"langageId":3,"langage":"php"},
+"user":null,
+"visible":true,
+"valide":true}
+
+Et :
+{"codeId":19,
+"code":"for(int i=0; i<10; i++){\n    System.out.println(\\\"item\\\"+i);\n}",
+"description":"",
+"tags":[{"tagId":25,"tag":"for"},
+{"tagId":3,"tag":"boucle"}],
+"langage":1,
+"user":null,
+"visible":true,
+"valide":true}
+
+difficilement exploitable.

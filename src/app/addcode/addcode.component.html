@@ -8,17 +8,17 @@
       <h2 class="form-signin-heading">Ajouter du code</h2>
       <div class="form-group">
         <label for="exampleSelect1">Langages</label>
-        <select class="form-control" id="exampleSelect1">
-          <option>Java</option>
-          <option>Php</option>
-          <option>C#</option>
+        <select class="form-control" #newLangSelect id="exampleSelect1">
+          <option value="java">Java</option>
+          <option value="php">Php</option>
+          <option value="csharp">C#</option>
         </select>
       </div>
       <label for="tags" class="sr-only">Mots clès</label>
-      <input type="textarea" id="tags" name="tags" class="form-control" placeholder="Mot clès" required>
+      <input type="textarea" id="tags" name="tags" class="form-control" #newTags placeholder="Mot clès" required>
       <label for="code" class="sr-only">Code</label>
-      <textarea name="field4" rows="5" id="code" name="tags" class="form-control" placeholder="Votre code ici" required></textarea>
-      <input type="submit" value="Ajouter"/>
+      <textarea name="field4" rows="5" id="code" name="tags" class="form-control" #newCode placeholder="Votre code ici" required></textarea>
+      <input type="submit" (click)="addMonCode(newLangSelect.value, newTags.value, newCode.value); newLangSelect.value=''; newLangSelect.value=''; newCode.value=''"value="Ajouter"/>
     </form>
 </div>
 </div>
