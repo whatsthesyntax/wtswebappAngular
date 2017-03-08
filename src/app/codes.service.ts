@@ -19,7 +19,7 @@ export class CodesService {
   public headers = new Headers({"Content-Type": "application/json"});
   public options = new RequestOptions({ headers: this.headers });
   /*URLs*/
-  private userUrlGetCodes = 'http://vps381611.ovh.net:8080/WTSAPI/codes';
+  private userUrlGetCodes = 'http://vps381611.ovh.net:8080/WTSAPI/search';
   private userUrlDeleteCodePrive = 'http://localhost:8080/deleteCodes';
   private userUrlAddCode = 'http://vps381611.ovh.net:8080/WTSAPI/codes';
   private userUrlGetMesCodes = 'http://vps381611.ovh.net:8080/WTSAPI/users/usercodes';
@@ -35,9 +35,8 @@ export class CodesService {
 
   /*Search for codes*/
   getCodes(searchreq:string){
-    let url = this.userUrlGetCodes+'/'+searchreq;
-    let headers = new Headers({"Content-Type": "text/plain"});
-    return this.http.get(url, {headers: headers})
+    let headersearch = new Headers({"Content-Type": "text/plain"});
+    return this.http.post(this.userUrlGetCodes, searchreq, {headers: headersearch})
     .map(
       (res) => res.json()
     );
