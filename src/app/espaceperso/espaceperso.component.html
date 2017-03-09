@@ -15,6 +15,12 @@
                 {{code.code}}
               </blockquote>
             </div>
+            <div *ngIf="code.langage==langage.langageId" class="row quote-container">
+              <div (click)="deleteCode(code)"><i class="pin"></i></div>
+              <blockquote class="note yellow" (click)="seeCode(code)">
+                {{code.code}}
+              </blockquote>
+            </div>
           </li>
         </ul>
       </div>

@@ -34,7 +34,7 @@ export class AddcodeComponent implements OnInit {
     }
     this.code.code = code;
     this.langage.langage = langage;
-    this.codetoadd = {code : this.code, tags: this.tags, langage:this.langage, userId:this.user.userId, visible:false};
+    this.codetoadd = {code : this.code, tags: this.tags, langage:this.langage, userid:""+this.user.userId, visible:false};
     console.log(JSON.stringify(this.codetoadd));
     this.textarea.addCodePrive(this.codetoadd, this.user.name, this.user.password);
   }
