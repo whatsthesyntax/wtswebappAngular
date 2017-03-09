@@ -2,17 +2,18 @@ import { Component, OnInit } from '@angular/core';
 import { ConnexionService } from '../connexion.service';
 import { TextareaService } from '../textarea.service';
 import { Router } from '@angular/router';
+import { CodesService } from '../codes.service';
 import { APP_GLOBAL, COOKIE } from '../appglobal';
 
 @Component({
   selector: 'app-seecodeconnect',
   templateUrl: './seecodeconnect.component.html',
   styleUrls: ['./seecodeconnect.component.css'],
-  providers: [ConnexionService, TextareaService]
+  providers: [ConnexionService, TextareaService, CodesService]
 })
 export class SeecodeconnectComponent implements OnInit {
-  public codeselect="";
-  public codeId:number;
+  codeselect="";
+  codeId:number;
 
   tags=[];
   langage={langage:""};
@@ -21,8 +22,11 @@ export class SeecodeconnectComponent implements OnInit {
   codetoadd = {};
 
   public code;
-  public user;
-  constructor(private textarea: TextareaService) { }
+  user;
+  constructor(private router: Router,
+    private logger: ConnexionService,
+    private textarea: TextareaService,
+    private codeService: CodesService) { }
 
   ngOnInit() {
     this.codeselect = APP_GLOBAL.getCodeSelect();
@@ -34,12 +38,15 @@ export class SeecodeconnectComponent implements OnInit {
 
   saveCode(){
     this.user = JSON.parse(COOKIE.get('currentUser'));
-    this.code = JSON.parse(COOKIE.get('codeselect'));
+    this.code= JSON.parse(COOKIE.get('codeselect'));
+    console.log(COOKIE.get('codeselect'));
+    this.codei.code = this.code.code;
     for(let tag of this.code.tags){
       this.tags.push({tag:tag.tag});
     }
-    this.codei.code = this.code.code;
-    this.codetoadd = {code:this.codei, tags:this.tags, langage:this.code.langage.langage, userid:this.user.userId, visible:false}
+    this.langage.langage = this.code.langage.langage;
+    this.codetoadd = {code:this.codei, tags:this.tags, langage:this.langage, userid:""+this.user.userId, visible:false};
+    console.log(JSON.stringify(this.codetoadd));
     this.textarea.addCodePrive(this.codetoadd, this.user.name, this.user.password);
   }
 }

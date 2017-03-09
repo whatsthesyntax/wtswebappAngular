@@ -23,6 +23,7 @@ export class CodesService {
   private userUrlDeleteCodePrive = 'http://localhost:8080/deleteCodes';
   private userUrlAddCode = 'http://vps381611.ovh.net:8080/WTSAPI/codes';
   private userUrlGetMesCodes = 'http://vps381611.ovh.net:8080/WTSAPI/users/usercodes';
+  private userUrlGetCode = 'http://vps381611.ovh.net:8080/WTSAPI/codes'
   private userUrlGetMesLangages = 'http://vps381611.ovh.net:8080/WTSAPI/users/userlanguages';
 
   constructor(private http: Http) { }
@@ -42,11 +43,18 @@ export class CodesService {
     );
   }
 
+  /*Get code by id*/
+  getCode(codeId){
+    return this.http.get(this.userUrlGetCode+'/'+codeId, {headers: this.headers})
+    .map(
+      (res) => res.json();
+    )
+  }
+
   /*Search for codes by langage*/
   getCodesByLangage(langage:string, searchreq:string){
-    let url = this.userUrlGetCodes+'/'+langage+" "+searchreq;
-    let headers = new Headers({"Content-Type": "text/plain"});
-    return this.http.get(url, {headers: headers})
+    let headersearch = new Headers({"Content-Type": "text/plain"});
+    return this.http.post(this.userUrlGetCodes, langage+" "+searchreq, {headers: headersearch})
     .map(
       (res) => res.json()
     );

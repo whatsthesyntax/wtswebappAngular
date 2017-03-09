@@ -27,9 +27,13 @@ export class SearchcsharpconnectComponent implements OnInit {
     this.textarea.selectText(newCodeSelect);
   }
 
-  codeselection(valuecode:string){
+  codeselection(valuecode:string, code){
     APP_GLOBAL.updateCodeSelect(valuecode);
-    this.router.navigateByUrl('seecode');
+    this.codeService.getCode(code.codeId).subscribe((data) =>
+    {
+      COOKIE.put('codeselect', JSON.stringify(data));
+      this.router.navigateByUrl('seecodeconnect');
+    });
   }
 
   getCodesResult(searchreq){

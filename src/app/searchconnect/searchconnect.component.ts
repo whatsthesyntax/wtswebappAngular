@@ -15,7 +15,7 @@ export class SearchconnectComponent implements OnInit {
 
   public showSearchResult = false;
   public codes = [];
-
+  public codeId:number;
   constructor(private router: Router,
     private logger: ConnexionService,
     private textarea: TextareaService,
@@ -31,8 +31,11 @@ export class SearchconnectComponent implements OnInit {
 
   codeselection(valuecode:string, code){
     APP_GLOBAL.updateCodeSelect(valuecode);
-    COOKIE.put('codeselect', JSON.stringify(code));
-    this.router.navigateByUrl('seecodeconnect');
+    this.codeService.getCode(code.codeId).subscribe((data) =>
+    {
+      COOKIE.put('codeselect', JSON.stringify(data));
+      this.router.navigateByUrl('seecodeconnect');
+    });
   }
 
   getCodesResult(searchreq){
