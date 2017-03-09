@@ -1,6 +1,10 @@
 .myheader{
     background-color: rgb(51, 51, 51);
     color: rgb(230, 230, 230);
+    position:fixed;
+    top:0px;
+    width:100%;
+    height: 100px;
 }
 
 .myref {
@@ -10,4 +14,16 @@
 
 .mytitle {
   font-size: 250%;
+  padding-top: 20px;
+}
+
+#logo{
+  margin-left: 30px;
+  padding-top: 10px;
+  width:80px;
+  height:100px;
+}
+
+.account{
+  padding-top: 7px;
 }
