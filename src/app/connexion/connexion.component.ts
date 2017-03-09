@@ -20,8 +20,16 @@ export class ConnexionComponent implements OnInit {
   ngOnInit() {
   }
 
+  wait(ms){
+   let start = new Date().getTime();
+   let end = start;
+   while(end < start + ms) {
+     end = new Date().getTime();
+  }
+}
+
   logIt(username, passeword){
-    this.logger.logIn(username, passeword).subscribe(function(data) {
+    this.logger.logIn(username, passeword).subscribe(data => {
         //SUCCESS
         this.users = data;
         let connect:Connect=new Connect(false);
@@ -34,13 +42,19 @@ export class ConnexionComponent implements OnInit {
         }
         if(!connect.etat){
           alert('Non utilisateur ou mot de passe incorrecte');
+          this.router.navigateByUrl('');
+        }else{
+          this.router.navigateByUrl('seachconnect');
         }
 
-    }, function(error) {
+    }, error => {
         //FAILURE
         console.log(error);
     });
-    this.router.navigateByUrl('seachconnect');
+
+
+
   }
+
 
 }
