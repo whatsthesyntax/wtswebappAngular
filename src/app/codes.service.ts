@@ -23,7 +23,7 @@ export class CodesService {
   private userUrlDeleteCodePrive = 'http://localhost:8080/deleteCodes';
   private userUrlAddCode = 'http://vps381611.ovh.net:8080/WTSAPI/codes';
   private userUrlGetMesCodes = 'http://vps381611.ovh.net:8080/WTSAPI/users/usercodes';
-  private userUrlGetCode = 'http://vps381611.ovh.net:8080/WTSAPI/codes'
+  private userUrlGetCode = 'http://vps381611.ovh.net:8080/WTSAPI/codes';
   private userUrlGetMesLangages = 'http://vps381611.ovh.net:8080/WTSAPI/users/userlanguages';
 
   constructor(private http: Http) { }
