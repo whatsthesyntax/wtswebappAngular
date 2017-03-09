@@ -56,8 +56,8 @@
 
 .sidebar-nav {
     position: absolute;
-    top: 0;
-    width: 250px;
+    top: 250px;
+    width: 100px;
     margin: 0;
     padding: 0;
     list-style: none;
@@ -110,7 +110,7 @@
     }
 
     #sidebar-wrapper {
-        width: 250px;
+        width: 100px;
     }
 
     #wrapper.toggled #sidebar-wrapper {

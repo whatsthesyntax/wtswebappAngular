@@ -1,6 +1,6 @@
 .quote-container {
-  margin-top: 50px;
-  position: relative;
+  top: 240px;
+  position: absolute;
 }
 
 .note {
