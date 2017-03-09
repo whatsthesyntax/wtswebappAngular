@@ -25,30 +25,27 @@ export class EspacepersoComponent implements OnInit {
 
   ngAfterViewInit() {
     this.user = JSON.parse(COOKIE.get('currentUser'));
+    console.log(COOKIE.get('currentUser'));
     this.codeService.getMesLangages(this.user.userId).subscribe(
       (data) => this.meslangages = data
     );
     this.codeService.getMesCodes(this.user.userId).subscribe(
       (data) => this.mescodes = data
     );
-    this.codeService.getMesLangages(this.user.userId).subscribe(function(data){
-      this.meslangages = data;
-      console.log(JSON.stringify(this.meslangages));
-    });
-    this.codeService.getMesCodes(this.user.userId).subscribe(function(data){
-      this.mescodes = data;
-      console.log(JSON.stringify(this.mescodes));
-    });
   }
 
-  seeCode(codeValue){
-    APP_GLOBAL.updateCode(codeValue);
-    this.router.navigateByUrl('editcode');
+  /*pour editer un code*/
+  seeCode(code){
+    this.codeService.getCode(code.codeId).subscribe((data) =>
+    {
+      COOKIE.put('codeselect', JSON.stringify(data));
+      this.router.navigateByUrl('editcode');
+    });
   }
 
   deleteCode(code){
     this.user = JSON.parse(COOKIE.get('currentUser'));
-    code.user = "";
+    this.code.user = "";
     this.codeService.deleteCodePrive(code, this.user.name, this.user.passwor);
     this.router.navigateByUrl('perso');
   }

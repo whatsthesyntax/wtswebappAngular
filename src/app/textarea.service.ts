@@ -40,6 +40,7 @@ export class TextareaService {
 
   /*Edition d'un code*/
   editionCodePrive(code, username:string, password:string){
+    this.headers = new Headers({"Content-Type": "application/json"});
     /*this.headers = new Headers({"Content-Type": "application/json"});
     this.createAuthorizationHeader(this.headers, username, password);*/
     return this.http.put(this.userUrlAddCodePrive, JSON.stringify(code), {headers:this.headers})

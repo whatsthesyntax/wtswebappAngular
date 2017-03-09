@@ -26,3 +26,20 @@
 for(int i=0; i<10; i++){
     System.Console.WriteLine(\"item\"+i);
 }
+{
+    "codeId": 1,
+    "code": "",
+    "description": "",
+    "tags": [
+      {
+        "tag": ""
+      }
+    ],
+    "langage": {
+      "langage": ""
+    },
+    "user": {
+      "userId": 134
+    },
+    "visible": true
+  }

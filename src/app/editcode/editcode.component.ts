@@ -12,6 +12,12 @@ import { APP_GLOBAL, COOKIE } from '../appglobal';
 })
 export class EditcodeComponent implements OnInit {
 
+  tags=[];
+  langage={langage:""};
+  codei={code:"", description:""};
+
+  codetoadd = {};
+
   public codeselect="";
   public codeId:number;
   public code;
@@ -20,7 +26,7 @@ export class EditcodeComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit() {
-    this.codeselect = APP_GLOBAL.getCode().code;
+    this.codeselect = JSON.parse(COOKIE.get('codeselect')).code;
   }
 
   selectCode(newCodeSelect){
@@ -32,10 +38,21 @@ export class EditcodeComponent implements OnInit {
     if(code === this.codeselect){
       alert('le code n\'a pas changé')
     }else{
-      this.code.code = code;
-      this.textarea.editionCodePrive(this.code, this.user.name, this.user.password);
+      console.log(COOKIE.get('currentUser'));
+      this.user = JSON.parse(COOKIE.get('currentUser'));
+      this.code= JSON.parse(COOKIE.get('codeselect'));
+      this.codei.code = this.code.code;
+      for(let tag of this.code.tags){
+        this.tags.push({tag:tag.tag});
+      }
+      this.langage.langage = this.code.langage.langage;
+      this.codetoadd = {codeId:this.code.codeId, code:code, description: "",tags:this.tags, langage:this.langage, user: {userId:this.user.userId}, visible:false};
+      console.log(JSON.stringify(this.codetoadd));
+      this.textarea.editionCodePrive(this.codetoadd, this.user.name, this.user.password).then(() => {
+        this.router.navigateByUrl('perso');
+      });
     }
-    this.router.navigateByUrl('perso');
+    //this.router.navigateByUrl('perso');
   }
 
 }
