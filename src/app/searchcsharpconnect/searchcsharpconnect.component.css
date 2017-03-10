@@ -3,6 +3,7 @@
     padding-right: 60px;
     padding-bottom: 150px;
     padding-left: 110px;
+
 }
 
 .sanspuce {
@@ -10,7 +11,9 @@
 }
 
 .listcode {
-    padding-bottom: 20px;
+  padding-top:170px;
+  padding-left: 200px;
+  padding-bottom: 50px;
 }
 
 input

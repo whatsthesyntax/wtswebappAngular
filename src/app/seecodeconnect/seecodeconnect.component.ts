@@ -48,5 +48,6 @@ export class SeecodeconnectComponent implements OnInit {
     this.codetoadd = {code:this.codei, tags:this.tags, langage:this.langage, userid:""+this.user.userId, visible:false};
     console.log(JSON.stringify(this.codetoadd));
     this.textarea.addCodePrive(this.codetoadd, this.user.name, this.user.password);
+    this.router.navigateByUrl('perso');
   }
 }

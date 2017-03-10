@@ -10,13 +10,13 @@
         <ul class="sanspuce">
           <li *ngFor="let code of mescodes">
             <div *ngIf="code.langage.langage==langage.langage" class="row quote-container">
-              <div (click)="deleteCode(code)"><i class="pin"></i></div>
+              <i (click)="deleteCode(code.codeId)" class="pin"></i>
               <blockquote class="note yellow" (click)="seeCode(code)">
                 {{code.code}}
               </blockquote>
             </div>
             <div *ngIf="code.langage==langage.langageId" class="row quote-container">
-              <div (click)="deleteCode(code)"><i class="pin"></i></div>
+              <i type="button" (click)="deleteCode(code.codeId)" class="pin"></i>
               <blockquote class="note yellow" (click)="seeCode(code)">
                 {{code.code}}
               </blockquote>

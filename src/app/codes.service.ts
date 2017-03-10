@@ -20,7 +20,7 @@ export class CodesService {
   public options = new RequestOptions({ headers: this.headers });
   /*URLs*/
   private userUrlGetCodes = 'http://vps381611.ovh.net:8080/WTSAPI/search';
-  private userUrlDeleteCodePrive = 'http://localhost:8080/deleteCodes';
+  private userUrlDeleteCodePrive = 'http://vps381611.ovh.net:8080/WTSAPI/codes';
   private userUrlAddCode = 'http://vps381611.ovh.net:8080/WTSAPI/codes';
   private userUrlGetMesCodes = 'http://vps381611.ovh.net:8080/WTSAPI/users/usercodes';
   private userUrlGetCode = 'http://vps381611.ovh.net:8080/WTSAPI/codes'
@@ -61,11 +61,11 @@ export class CodesService {
   }
 
   /*supprimer un code privé*/
-  deleteCodePrive(code, username: string, password: string){
+  deleteCodePrive(codeId, username: string, password: string){
     /*A decomenter pour tester*/
     /*this.headers = new Headers({"Content-Type": "application/json"});
     this.createAuthorizationHeader(this.headers, username, password);*/
-    return this.http.put(this.userUrlDeleteCodePrive, JSON.stringify(code), {headers:this.headers})
+    return this.http.delete(this.userUrlDeleteCodePrive+'/'+codeId)
     .toPromise()
     .catch(this.handleError);
   }

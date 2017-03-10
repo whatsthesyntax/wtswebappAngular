@@ -66,6 +66,12 @@ export class ConnexionService {
     .toPromise()
     .catch(this.handleError);
   }
+
+  /*Modifier l'utilisateur*/
+  deleteUser(userId){
+    return this.http.delete(this.usersUrl+'/'+userId).toPromise();
+  }
+
   /**/
   private extractData(res: Response) {
     let body = res.json();

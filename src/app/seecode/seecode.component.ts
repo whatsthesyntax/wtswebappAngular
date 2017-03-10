@@ -14,7 +14,8 @@ import { APP_GLOBAL, COOKIE } from '../appglobal';
 export class SeecodeComponent implements OnInit {
   codeselect="";
   codeId:number;
-  constructor(private textarea: TextareaService) { }
+  constructor(private textarea: TextareaService,
+    private router: Router) { }
 
   ngOnInit() {
     this.codeId = APP_GLOBAL.getCodeId();
@@ -27,5 +28,6 @@ export class SeecodeComponent implements OnInit {
 
   saveCode(){
     alert('Voueillez vous connecter pour sauvgarder ce code');
+    this.router.navigateByUrl('connexion');
   }
 }
