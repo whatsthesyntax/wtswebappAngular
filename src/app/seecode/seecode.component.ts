@@ -27,7 +27,7 @@ export class SeecodeComponent implements OnInit {
   }
 
   saveCode(){
-    alert('Voueillez vous connecter pour sauvgarder ce code');
+    alert('Veuillez vous connecter pour sauvegarder ce code');
     this.router.navigateByUrl('connexion');
   }
 }
