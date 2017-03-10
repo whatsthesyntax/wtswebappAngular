@@ -47,7 +47,7 @@ export class CodesService {
   getCode(codeId){
     return this.http.get(this.userUrlGetCode+'/'+codeId, {headers: this.headers})
     .map(
-      (res) => res.json();
+      (res) => res.json()
     )
   }
 

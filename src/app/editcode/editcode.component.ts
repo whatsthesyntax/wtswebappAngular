@@ -43,10 +43,10 @@ export class EditcodeComponent implements OnInit {
       this.code= JSON.parse(COOKIE.get('codeselect'));
       this.codei.code = this.code.code;
       for(let tag of this.code.tags){
-        this.tags.push({tag:tag.tag});
+        this.tags.push(tag);
       }
-      this.langage.langage = this.code.langage.langage;
-      this.codetoadd = {codeId:this.code.codeId, code:code, description: "",tags:this.tags, langage:this.langage, user: {userId:this.user.userId}, visible:false};
+      this.langage = this.code.langage;
+      this.codetoadd = {codeId:this.code.codeId, code:code, description: "",tags:this.tags, langage:this.langage, user: this.user, visible:false, valide:false};
       console.log(JSON.stringify(this.codetoadd));
       this.textarea.editionCodePrive(this.codetoadd, this.user.name, this.user.password).then(() => {
         this.router.navigateByUrl('perso');
