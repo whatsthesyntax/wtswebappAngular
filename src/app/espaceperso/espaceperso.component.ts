@@ -15,6 +15,7 @@ export class EspacepersoComponent implements OnInit {
   public mescodes = [];
   public meslangages= [];
   public user;
+  public code;
   constructor(private logger: ConnexionService,
     private router: Router,
     private codeService: CodesService) { }
