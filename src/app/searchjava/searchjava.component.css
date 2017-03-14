@@ -1,5 +1,7 @@
-.mysearchjava {
-    top:200px;
+.mysearch {
+    top:110px;
+    width: 700px;
+    position: fixed;
 }
 
 .sanspuce {
@@ -7,10 +9,18 @@
 }
 
 .listcode {
-    padding-bottom: 20px;
+    padding-top:170px;
+    padding-left: 200px;
+    padding-bottom: 50px;
+    margin:20px;
+    width: 80%;
 }
+
+.listcode li{
+  margin:20px;
+}
+
 input
 {
-  height: 58px;
-  width: 400px;
+  height: 40px;
 }
