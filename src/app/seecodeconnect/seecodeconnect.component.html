@@ -2,12 +2,10 @@
   <app-headerconnect></app-headerconnect>
 </header>
 <app-sidebarconnect></app-sidebarconnect>
-<div class="col-xs-6 col-sm-10 col-sm-push-4 boxlogo mysee">
-<div class="col-lg-6">
-    <textarea class="span6" rows="5" id="code" #newCodeSelect name="tags" class="form-control" [value]="codeselect" readonly></textarea>
+<div class="mysee">
+    <textarea class="span6" rows="12" id="code" #newCodeSelect name="tags" class="form-control" [value]="codeselect"></textarea>
       <button class="btn btn-secondary" type="button" (click)="saveCode()">
         <span class="glyphicon glyphicon-floppy-disk"></span>
       </button>
     <button class="btn btn-secondary" type="button" (click)="selectCode(newCodeSelect)">Selection</button>
-</div>
 </div>
