@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { ConnexionService } from '../connexion.service';
 import { TextareaService } from '../textarea.service';
 import { Router } from '@angular/router';
@@ -23,30 +23,33 @@ export class EditcodeComponent implements OnInit {
   public code;
   public user;
   constructor(private textarea: TextareaService,
-    private router: Router) { }
+    private router: Router,
+      private logger: ConnexionService) { }
 
   ngOnInit() {
+
     this.codeselect = JSON.parse(COOKIE.get('codeselect')).code;
   }
 
   selectCode(newCodeSelect){
     this.textarea.selectText(newCodeSelect);
   }
-
+  ngAfterViewInit() {
+    this.logger.getUser(JSON.parse(COOKIE.get('currentUser')).userId).subscribe((data) => this.user = data);
+  }
   /*save after edition*/
   saveCode(code:string){
     if(code === this.codeselect){
       alert('le code n\'a pas changé')
     }else{
-      console.log(COOKIE.get('currentUser'));
-      this.user = JSON.parse(COOKIE.get('currentUser'));
+
       this.code= JSON.parse(COOKIE.get('codeselect'));
       this.codei.code = this.code.code;
       for(let tag of this.code.tags){
-        this.tags.push({tag:tag.tag});
+        this.tags.push(tag);
       }
-      this.langage.langage = this.code.langage.langage;
-      this.codetoadd = {codeId:this.code.codeId, code:code, description: "",tags:this.tags, langage:this.langage, user: {userId:this.user.userId}, visible:false};
+      this.langage = this.code.langage;
+      this.codetoadd = {codeId:this.code.codeId, code:code, description: "",tags:this.tags, langage:this.langage, user: this.user, visible:false, valide:false};
       console.log(JSON.stringify(this.codetoadd));
       this.textarea.editionCodePrive(this.codetoadd, this.user.name, this.user.password).then(() => {
         this.router.navigateByUrl('perso');

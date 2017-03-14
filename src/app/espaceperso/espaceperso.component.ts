@@ -44,10 +44,9 @@ export class EspacepersoComponent implements OnInit {
     });
   }
 
-  deleteCode(code){
-    this.user = JSON.parse(COOKIE.get('currentUser'));
-    this.code.user = "";
-    this.codeService.deleteCodePrive(code, this.user.name, this.user.passwor);
+  deleteCode(codeId){
+    console.log(codeId);
+    this.codeService.deleteCodePrive(codeId, this.user.name, this.user.passwor);
     this.router.navigateByUrl('perso');
   }
 

@@ -41,26 +41,26 @@ export class UserparamsComponent implements OnInit {
   }
 
   modifMdp(newValue){
-    console.log(JSON.parse(COOKIE.get('currentUser')));
     let user = {id:this.user.userId, password:newValue}
     this.user.password = newValue;
-    console.log("this.user : "+this.user);
     COOKIE.put('currentUser', JSON.stringify(this.user));
-    console.log(JSON.parse(COOKIE.get('currentUser')));
-    this.logger.updateUser(user);
+    this.logger.updateUser(this.user);
   }
   modifName(newValue){
-    console.log(JSON.parse(COOKIE.get('currentUser')));
-    let user = {id:this.user.userId, name:newValue}
+    let user = {userid:this.user.userId, name:newValue};
     this.user.name = newValue;
     COOKIE.put('currentUser', JSON.stringify(this.user));
-    this.logger.updateUser(user);
+    this.logger.updateUser(this.user);
   }
   modifEmail(newValue){
-    console.log(JSON.parse(COOKIE.get('currentUser')));
-    let user = {id:this.user.userId, email:newValue}
+    let user = {userid:this.user.userId, email:newValue};
     this.user.email = newValue;
     COOKIE.put('currentUser', JSON.stringify(this.user));
-    this.logger.updateUser(user);
+    this.logger.updateUser(this.user);
+  }
+  quit(){
+    this.logger.deleteUser(this.user.userId);
+    COOKIE.remove('currentUser');
+    this.router.navigateByUrl('');
   }
 }

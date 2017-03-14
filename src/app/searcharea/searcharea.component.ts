@@ -39,4 +39,8 @@ export class SearchareaComponent implements OnInit {
     this.showSearchResult = true;
     result.subscribe((data) => this.codes=data);
   }
+
+  keyup(){
+    
+  }
 }
