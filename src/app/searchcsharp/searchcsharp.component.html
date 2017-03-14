@@ -15,7 +15,7 @@
     <div *ngIf="showSearchResult" class="listcode">
       <ul class="sanspuce">
         <li *ngFor="let code of codes">
-          <textarea class="span6" rows="2" id="code" #newCodeSelect name="tags" class="form-control" value="{{code.code}}" readonly></textarea>
+          <textarea class="span6" rows="5" id="code" #newCodeSelect name="tags" class="form-control" value="{{code.code}}" readonly></textarea>
           <button  class="btn btn-secondary" (click)="codeselection(newCodeSelect.value); newCodeSelect.value='';" type="button">
             <span class="glyphicon glyphicon glyphicon-eye-open"></span>
           </button>

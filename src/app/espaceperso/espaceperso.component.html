@@ -10,16 +10,16 @@
         <ul class="sanspuce">
           <li *ngFor="let code of mescodes">
             <div *ngIf="code.langage.langage==langage.langage" class="row quote-container">
-              <i (click)="deleteCode(code.codeId)" class="pin"></i>
-              <blockquote class="note yellow" (click)="seeCode(code)">
+              <i class="pin" (click)="deleteCode(code.codeId)"></i>
+              <textarea>
                 {{code.code}}
-              </blockquote>
+              </textarea>
             </div>
             <div *ngIf="code.langage==langage.langageId" class="row quote-container">
-              <i type="button" (click)="deleteCode(code.codeId)" class="pin"></i>
-              <blockquote class="note yellow" (click)="seeCode(code)">
+              <div (click)="deleteCode(code)"><i class="pin"></i></div>
+              <textarea class="note yellow" (click)="seeCode(code)">
                 {{code.code}}
-              </blockquote>
+              </textarea>
             </div>
           </li>
         </ul>
@@ -27,3 +27,4 @@
     </li>
   </ul>
 </div>
+<!-- (click)="seeCode(code)"-->
