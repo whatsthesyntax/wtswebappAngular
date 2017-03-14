@@ -10,7 +10,7 @@
           <img src={{iconjava}} width="40" height="40">
         </button>
       </span>
-      <input type="text" class="form-control" #newTags placeholder="Recherchez une syntaxe Java ..."/>
+      <input type="text" class="form-control" #newTags (keyup.enter)="getCodesResult(newTags.value); newTags.value=''" placeholder="Recherchez une syntaxe Java ..."/>
     </div>
     <div *ngIf="showSearchResult" class="listcode">
       <ul class="sanspuce">
