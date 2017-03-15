@@ -15,6 +15,8 @@ export class SearchphpconnectComponent implements OnInit {
   public showSearchResult = false;
   iconphp = "./assets/iconphp.png";
   public codes = [];
+  public codetagMap = {};
+  logowts = "./assets/index.png";
   constructor(private router: Router,
     private logger: ConnexionService,
     private textarea: TextareaService,
@@ -39,7 +41,15 @@ export class SearchphpconnectComponent implements OnInit {
   getCodesResult(searchreq){
     let result = this.codeService.getCodesByLangage("php", searchreq);
     this.showSearchResult = true;
-    result.subscribe((data) => this.codes=data);
+    result.subscribe((data) =>
+    {
+      this.codes=data;
+      for(let c of this.codes){
+        this.codeService.getCode(c.codeId).subscribe((d) => {
+          this.codetagMap[c.codeId] = d.tags;
+        });
+      }
+    });
   }
 
 }

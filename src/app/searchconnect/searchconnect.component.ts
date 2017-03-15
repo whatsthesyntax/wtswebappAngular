@@ -14,7 +14,9 @@ import { CodesService } from '../codes.service';
 export class SearchconnectComponent implements OnInit {
 
   public showSearchResult = false;
+  logowts = "./assets/index.png";
   public codes = [];
+  public codetagMap = {};
   public codeId:number;
   constructor(private router: Router,
     private logger: ConnexionService,
@@ -41,7 +43,15 @@ export class SearchconnectComponent implements OnInit {
   getCodesResult(searchreq){
     let result = this.codeService.getCodes(searchreq);
     this.showSearchResult = true;
-    result.subscribe((data) => this.codes=data);
+    result.subscribe((data) =>
+    {
+      this.codes=data;
+      for(let c of this.codes){
+        this.codeService.getCode(c.codeId).subscribe((d) => {
+          this.codetagMap[c.codeId] = d.tags;
+        });
+      }
+    });
   }
 
 }

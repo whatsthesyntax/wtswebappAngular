@@ -14,6 +14,8 @@ export class SearchcsharpconnectComponent implements OnInit {
 
   public showSearchResult = false;
   public codes = [];
+  public codetagMap = {};
+  logowts = "./assets/index.png";
   iconcsharp = "./assets/iconcsharp.png";
   constructor(private router: Router,
     private logger: ConnexionService,
@@ -39,7 +41,15 @@ export class SearchcsharpconnectComponent implements OnInit {
   getCodesResult(searchreq){
     let result = this.codeService.getCodesByLangage("csharp", searchreq);
     this.showSearchResult = true;
-    result.subscribe((data) => this.codes=data);
+    result.subscribe((data) =>
+    {
+      this.codes=data;
+      for(let c of this.codes){
+        this.codeService.getCode(c.codeId).subscribe((d) => {
+          this.codetagMap[c.codeId] = d.tags;
+        });
+      }
+    });
   }
 
 }

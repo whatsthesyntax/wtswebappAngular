@@ -33,3 +33,28 @@ input
 span.glyphicon-search {
     font-size: 1.5em;
 }
+
+.note {
+  color: #333;
+  position: relative;
+  width: 100px;
+  margin: 5 auto;
+  padding: 20px;
+  font-family: Satisfy;
+  font-size: 13px;
+  box-shadow: 0 10px 10px 2px rgba(0,0,0,0.3);
+}
+
+.note .author {
+  display: block;
+  margin: 40px 0 0 0;
+  text-align: right;
+}
+.yellow {
+  background: #eae672;
+  -webkit-transform: rotate(2deg);
+  -moz-transform: rotate(2deg);
+  -o-transform: rotate(2deg);
+  -ms-transform: rotate(2deg);
+  transform: rotate(2deg);
+}

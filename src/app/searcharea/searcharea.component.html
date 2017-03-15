@@ -29,6 +29,15 @@
                </td>
              </tr>
             </table>
+             <table>
+               <tr>
+                 <td *ngFor="let tag of codetagMap[code.codeId]">
+                   <blockquote *ngIf="tag.tag!=null" class="note yellow">
+                     {{tag.tag}}
+                   </blockquote>
+                 </td>
+               </tr>
+             </table>
           </li>
         </ul>
       </tr>

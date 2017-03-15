@@ -45,13 +45,9 @@ export class SearchareaComponent implements OnInit {
       for(let c of this.codes){
         this.codeService.getCode(c.codeId).subscribe((d) => {
           this.codetagMap[c.codeId] = d.tags;
-          console.log(JSON.stringify(d));
         });
       }
     });
   }
 
-  keyup(){
-
-  }
 }
