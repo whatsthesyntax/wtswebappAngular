@@ -6,7 +6,7 @@
 }
 
 .form-style-4{
-    width: 450px;
+    width: 1000px;
     font-size: 16px;
     background: rgb(51, 51, 51);
     padding: 30px 30px 15px 30px;
@@ -19,7 +19,9 @@
 .form-style-4 input[type=textarea],
 .form-style-4 input[type=email],
 .form-style-4 textarea,
-.form-style-4 label
+.form-style-4 label,
+.form-style-4 select,
+.form-style-4 legend
 {
     font-family: Georgia, "Times New Roman", Times, serif;
     font-size: 16px;
@@ -57,7 +59,7 @@
     outline: none;
     border: none;
     border-bottom: 1px dashed #83A4C5;
-    width: 275px;
+    width: 930px;
     overflow: hidden;
 }
 

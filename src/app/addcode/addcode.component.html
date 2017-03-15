@@ -5,7 +5,7 @@
 <div class="col-xs-6 col-sm-4 col-sm-push-3 boxlogo myadminform">
 <div class="span3 well">
   <form class="form-style-4">
-      <h2 class="form-signin-heading">Ajouter du code</h2>
+      <legend>Ajouter un code personnel</legend>
       <div class="form-group">
         <label for="exampleSelect1">Langages</label>
         <select class="form-control" #newLangSelect id="exampleSelect1">
@@ -17,8 +17,9 @@
       <label for="tags" class="sr-only">Mots clès</label>
       <input type="textarea" id="tags" name="tags" class="form-control" #newTags placeholder="Mot clès" required>
       <label for="code" class="sr-only">Code</label>
-      <textarea name="field4" rows="5" id="code" name="tags" class="form-control" #newCode placeholder="Votre code ici" required></textarea>
-      <input type="submit" (click)="addMonCode(newLangSelect.value, newTags.value, newCode.value); newLangSelect.value=''; newLangSelect.value=''; newCode.value=''"value="Ajouter"/>
+      <textarea name="field4" rows="12" id="code" name="tags" class="form-control" #newCode placeholder="Votre code ici" required></textarea>
+      <input type="submit" (keyup.enter)="addMonCode(newLangSelect.value, newTags.value, newCode.value); newLangSelect.value=''; newLangSelect.value=''; newCode.value=''"
+      (click)="addMonCode(newLangSelect.value, newTags.value, newCode.value); newLangSelect.value=''; newLangSelect.value=''; newCode.value=''"value="Ajouter"/>
     </form>
 </div>
 </div>
