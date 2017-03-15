@@ -19,8 +19,9 @@
 .form-style-4 input[type=textarea],
 .form-style-4 input[type=email],
 .form-style-4 textarea,
-.form-style-4 label
-.form-style-4 select
+.form-style-4 label,
+.form-style-4 select,
+.form-style-4 legend
 {
     font-family: Georgia, "Times New Roman", Times, serif;
     font-size: 16px;

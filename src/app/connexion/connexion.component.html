@@ -5,11 +5,11 @@
 <div class="col-xs-6 col-sm-4 col-sm-push-3 boxlogo myconnexionform">
 <div class="span3 well">
   <form class="form-style-4">
-      <h2 class="form-signin-heading">Connexion</h2>
+      <legend>Identification</legend>
       <label for="username" class="sr-only">Nom d'utilisateur</label>
       <input type="textarea" id="username" name="username" class="form-control" #newUserName placeholder="Nom d'utilisateur" required autofocus>
       <label for="inputPassword" class="sr-only">Mot de passe</label>
-      <input type="password" id="inputPassword" name="password" class="form-control" #newPassword placeholder="Mot de passe" required>
+      <input type="password" id="inputPassword" name="password" class="form-control" #newPassword  placeholder="Mot de passe" required>
       <input type="submit" value="S'identifier" (click)="logIt(newUserName.value, newPassword.value); newPassword.value=''; newUserName.value=''"  />
     </form>
 </div>
