@@ -81,7 +81,7 @@ textarea:focus { box-shadow:0 5px 12px rgba(0,0,0,0.2); outline:none; }
   height: 32px;
   width: 2px;
   position: absolute;
-  left: 10%;
+  left: 25%;
   top: -16px;
   z-index: 1;
 }

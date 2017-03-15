@@ -27,7 +27,6 @@ export class EditcodeComponent implements OnInit {
       private logger: ConnexionService) { }
 
   ngOnInit() {
-
     this.codeselect = JSON.parse(COOKIE.get('codeselect')).code;
   }
 
