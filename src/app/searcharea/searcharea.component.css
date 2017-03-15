@@ -2,20 +2,25 @@
     top:110px;
     width: 700px;
     position: fixed;
+    z-index: 2;
 }
-
+.planheader{
+  z-index: 2;
+}
 .sanspuce {
    list-style-type:none;
 }
 
 .listcode {
     padding-top:170px;
-    padding-left: 200px;
+    padding-left: 10px;
     padding-bottom: 50px;
     margin:20px;
     width: 80%;
 }
-
+.list {
+    z-index: 1;
+}
 .listcode li{
   margin:20px;
 }

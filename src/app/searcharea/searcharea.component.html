@@ -11,19 +11,27 @@
         </button>
       </span>
     </div>
-    <div *ngIf="showSearchResult" class="listcode">
-      <ul class="sanspuce">
-        <li *ngFor="let code of codes">
-          <textarea class="span6" rows="2" id="code" #newCodeSelect name="tags" class="form-control" value="{{code.code}}" readonly></textarea>
-          <button  class="btn btn-secondary"  type="button">
-            <span class="glyphicon glyphicon glyphicon-eye-open"></span>
-          </button>
-          <button class="btn btn-secondary" type="button" (click)="selectCode(newCodeSelect)">Selection</button>
-        </li>
-      </ul>
-    </div>
+    <div class="list input-group col-xs-8 col-sm-10 col-sm-push-3 boxlogo">
+      <table>
+       <tr>
+        <ul *ngIf="showSearchResult" class="sanspuce listcode">
+          <li *ngFor="let code of codes">
+            <table>
+             <tr>
+               <td><textarea rows="5" cols="60" id="code" #newCodeSelect value="{{code.code}}" readonly></textarea></td>
+               <td><button  class="btn btn-secondary" (click)="codeselection(newCodeSelect.value,code); newCodeSelect.value='';" type="button">
+                 <span class="glyphicon glyphicon glyphicon-eye-open"></span>
+               </button></td>
+               <td>
+                 <button class="btn btn-secondary" type="button" (click)="selectCode(newCodeSelect)">
+                   <img src={{logowts}} width="20" height="20"/>
+                 </button>
+               </td>
+             </tr>
+            </table>
+          </li>
+        </ul>
+      </tr>
+     </table>
+   </div>
 </div>
-
-<!--(click)="codeselection(newCodeSelect.value,code.codeId); newCodeSelect.value='';"
-
--->

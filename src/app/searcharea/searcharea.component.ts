@@ -13,8 +13,10 @@ import { APP_GLOBAL, COOKIE } from '../appglobal';
 })
 export class SearchareaComponent implements OnInit {
 
+  logowts = "./assets/index.png";
   public showSearchResult = false;
   public codes = [];
+  public codetagMap = {};
   constructor(private router: Router,
      private logger: ConnexionService,
      private textarea: TextareaService,
@@ -37,10 +39,19 @@ export class SearchareaComponent implements OnInit {
   getCodesResult(searchreq){
     let result = this.codeService.getCodes(searchreq);
     this.showSearchResult = true;
-    result.subscribe((data) => this.codes=data);
+    result.subscribe((data) =>
+    {
+      this.codes=data;
+      for(let c of this.codes){
+        this.codeService.getCode(c.codeId).subscribe((d) => {
+          this.codetagMap[c.codeId] = d.tags;
+          console.log(JSON.stringify(d));
+        });
+      }
+    });
   }
 
   keyup(){
-    
+
   }
 }
