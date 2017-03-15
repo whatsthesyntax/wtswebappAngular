@@ -20,6 +20,8 @@ export class SeecodeconnectComponent implements OnInit {
   codei={code:"", description:""};
 
   codetoadd = {};
+  public tagspost=[];
+  public langagepost = "";
 
   public code;
   user;
@@ -30,6 +32,11 @@ export class SeecodeconnectComponent implements OnInit {
 
   ngOnInit() {
     this.codeselect = APP_GLOBAL.getCodeSelect();
+    this.code= JSON.parse(COOKIE.get('codeselect'));
+    this.codeService.getCode(this.code.codeId).subscribe((d) => {
+      this.tags = d.tags;
+      this.langage = d.langage.langage;
+    });
   }
 
 

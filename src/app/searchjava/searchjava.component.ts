@@ -29,8 +29,9 @@ export class SearchjavaComponent implements OnInit {
     this.textarea.selectText(newCodeSelect);
   }
 
-  codeselection(valuecode:string){
+  codeselection(valuecode:string, codeId:number){
     APP_GLOBAL.updateCodeSelect(valuecode);
+    APP_GLOBAL.updateCodeId(codeId);
     this.router.navigateByUrl('seecode');
   }
 

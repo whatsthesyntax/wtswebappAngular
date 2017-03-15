@@ -19,7 +19,7 @@
             <table>
              <tr>
                <td><textarea rows="5" cols="60" id="code" #newCodeSelect value="{{code.code}}" readonly></textarea></td>
-               <td><button  class="btn btn-secondary" (click)="codeselection(newCodeSelect.value,code); newCodeSelect.value='';" type="button">
+               <td><button  class="btn btn-secondary" (click)="codeselection(newCodeSelect.value,code.codeId); newCodeSelect.value='';" type="button">
                  <span class="glyphicon glyphicon glyphicon-eye-open"></span>
                </button></td>
                <td>

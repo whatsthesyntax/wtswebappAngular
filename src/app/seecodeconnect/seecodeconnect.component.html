@@ -1,11 +1,29 @@
 <header>
-  <app-headerconnect></app-headerconnect>
+  <app-header></app-header>
 </header>
-<app-sidebarconnect></app-sidebarconnect>
-<div class="mysee">
-    <textarea class="span6" rows="12" id="code" #newCodeSelect name="tags" class="form-control" [value]="codeselect"></textarea>
-      <button class="btn btn-secondary" type="button" (click)="saveCode()">
-        <span class="glyphicon glyphicon-floppy-disk"></span>
-      </button>
-    <button class="btn btn-secondary" type="button" (click)="selectCode(newCodeSelect)">Selection</button>
+<app-sidebar></app-sidebar>
+<div class="col-xs-6 col-sm-10 col-sm-push-4 boxlogo mysee">
+  <h2>Exploration du code {{langagepost}}:</h2>
+  <table>
+    <tr>
+      <td *ngFor="let tag of tagspost">
+        <blockquote *ngIf="tag.tag!=null" class="note yellow">
+          {{tag.tag}}
+        </blockquote>
+      </td>
+    </tr>
+  </table>
+  <table>
+   <tr>
+     <td><textarea rows="15" cols="80" id="code" #newCodeSelect [value]="codeselect" readonly></textarea></td>
+     <td><button  class="btn btn-secondary" (click)="saveCode()" type="button">
+       <span class="glyphicon glyphicon-floppy-disk"></span>
+     </button></td>
+     <td>
+       <button class="btn btn-secondary" type="button" (click)="selectCode(newCodeSelect)">
+         <img src={{logowts}} width="30" height="30"/>
+       </button>
+     </td>
+   </tr>
+  </table>
 </div>
