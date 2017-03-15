@@ -13,7 +13,7 @@
           <input type="email" id="email" name="email" #newEMail class="form-control" placeholder="Adresse e-mail" required>
 
           <label for="inputPassword" class="sr-only">Mot de passe</label>
-          <input type="password" id="password" #newPassword name="password" class="form-control"  placeholder="Mot de passe" required>
+          <input type="password" id="password" #newPassword name="password" class="form-control" (keyup.enter)="logItUp(newUserName.value, newPassword.value); newPassword.value=''; newUserName.value=''" placeholder="Mot de passe" required>
 
           <input type="submit" value="S'inscrire" (click)="logItUp(newUserName.value, newEMail.value, newPassword.value);newUserName.value=''; newEMail.value=''; newPassword.value=''"  />
     </form>
