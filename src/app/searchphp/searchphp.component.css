@@ -2,10 +2,11 @@
     top:110px;
     width: 700px;
     position: fixed;
-    z-index: 2;
+    z-index: 20;
 }
 .planheader{
-  z-index: 2;
+  position: fixed;
+  z-index: 300;
 }
 .sanspuce {
    list-style-type:none;
