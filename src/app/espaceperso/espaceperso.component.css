@@ -1,8 +1,16 @@
 .perso {
     padding-top: 150px;
-    padding-right: 500px;
     padding-bottom: 100px;
-    padding-left: 50px;
+    padding-left: 250px;
+    z-index: 20;
+}
+.planheader{
+  position: fixed;
+  z-index: 300;
+}
+.langmargin{
+  margin: 20px;
+  z-index: 1;
 }
 
 .sanspuce {
@@ -56,25 +64,7 @@ textarea {
 }
 textarea:hover { box-shadow:0 5px 8px rgba(0,0,0,0.15); }
 textarea:focus { box-shadow:0 5px 12px rgba(0,0,0,0.2); outline:none; }
-/*.note {
-  color: #333;
-  /*position: relative;
-  width: 300px;
-  margin: 0 auto;
-  padding: 20px;
-  font-size: 13px;
-  box-shadow: 0 10px 10px 2px rgba(0,0,0,0.3);
-}
 
-.yellow {
-  background: #eae672;
-  -webkit-transform: rotate(2deg);
-  -moz-transform: rotate(2deg);
-  -o-transform: rotate(2deg);
-  -ms-transform: rotate(2deg);
-  transform: rotate(2deg);
-}
-*/
 .pin {
   background-color: #aaa;
   display: block;

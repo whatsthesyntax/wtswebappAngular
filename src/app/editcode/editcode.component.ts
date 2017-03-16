@@ -53,7 +53,9 @@ export class EditcodeComponent implements OnInit {
       this.code= JSON.parse(COOKIE.get('codeselect'));
       this.codei.code = this.code.code;
       for(let tag of this.code.tags){
-        this.tags.push(tag);
+        if(tag.tag!=null){
+          this.tags.push(tag);
+        }
       }
       this.langage = this.code.langage;
       this.codetoadd = {codeId:this.code.codeId, code:code, description: "",tags:this.tags, langage:this.langage, user: this.user, visible:false, valide:false};

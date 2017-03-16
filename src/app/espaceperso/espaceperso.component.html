@@ -1,25 +1,23 @@
+<div class="planheader">
 <header>
   <app-headerconnect></app-headerconnect>
 </header>
+</div>
 <app-sidebarconnect></app-sidebarconnect>
-<div class="col-xs-6 col-sm-10 col-sm-push-4 boxlogo perso">
-  <ul class="sanspuce nav nav-tabs nav-justified" role="tablist">
-    <li *ngFor="let langage of meslangages">
+<div class="col-xs-6 col-sm-10 boxlogo perso">
+  <ul class="sanspuce nav nav-tabs nav-justified langmargin" role="tablist">
+    <li *ngFor="let langage of meslangages" >
       <div class="row">
         <h2>{{langage.langage}}</h2>
         <ul class="sanspuce">
           <li *ngFor="let code of mescodes">
             <div *ngIf="code.langage.langage==langage.langage" class="row quote-container">
               <i class="pin" (click)="deleteCode(code.codeId)"></i>
-              <textarea (click)="seeCode(code)">
-                {{code.code}}
-              </textarea>
+              <textarea (click)="seeCode(code)">{{code.code}}</textarea>
             </div>
             <div *ngIf="code.langage==langage.langageId" class="row quote-container">
-              <div (click)="deleteCode(code)"><i class="pin"></i></div>
-              <textarea (click)="seeCode(code)">
-                {{code.code}}
-              </textarea>
+              <div (click)="deleteCode(code.codeId)"><i class="pin"></i></div>
+              <textarea (click)="seeCode(code)">{{code.code}}</textarea>
             </div>
           </li>
         </ul>

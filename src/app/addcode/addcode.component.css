@@ -1,10 +1,13 @@
 .myadminform {
-    padding-top: 150px;
-    padding-right: 60px;
+    padding-top: 110px;
     padding-bottom: 150px;
-    padding-left: 110px;
+    padding-left: 210px;
+    z-index: 1;
 }
-
+.planheader{
+  position: fixed;
+  z-index: 300;
+}
 .form-style-4{
     width: 1000px;
     font-size: 16px;
@@ -20,7 +23,6 @@
 .form-style-4 input[type=email],
 .form-style-4 textarea,
 .form-style-4 label,
-.form-style-4 select,
 .form-style-4 legend
 {
     font-family: Georgia, "Times New Roman", Times, serif;
